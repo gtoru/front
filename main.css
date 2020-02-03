@@ -1,0 +1,372 @@
+body {
+	/*шрифт норм чет не подключается*/
+	margin: 0 auto;
+	width: 1440px;
+}
+
+h6, a {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-size: 18px;
+}
+.nav {
+	width: 1318px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar {
+	margin-top: 1.5em;
+	/*margin-left: 5.5em;*/
+	/*margin: 0 auto;*/
+	margin-top: 2em;
+	width: 1440px;
+	border-radius: 100px;
+	/*display: flex;
+	justify-content: space-between;*/
+}
+
+.navbar-brand img{
+	width: 4em;
+	height: 4em;
+	margin-right: 2.1em;
+}
+
+
+.nav-item{
+	/*padding-right: 5.2em;*/
+}
+
+.carousel-item img{
+	/*width: 12em;*/
+	height: 12em;
+}
+
+.btn-outline-primary {
+	border-radius: 100px;
+	color: #0264B1;
+	border-color: #0264B1;
+	box-shadow: 5px 5px 5px rgba(1, 148, 218, 0.5);
+}
+
+.auth .btn-outline-primary {
+	width: 230px;
+}
+
+.popup-holder{
+	top: 50%;
+    left: 50%;
+    width: 525px;
+    height: 500px;
+    background-color: #0165B3;
+    position: absolute;
+    margin-left: -262px;
+    margin-top: -250px;
+    text-align: center;
+	border-radius: 8px;
+}
+
+.authorization-border{
+	height: 63px;
+	width: 255px;
+	background-color: #0293DC;
+    display: inline-block;
+	border-radius: 100px;
+	margin-top: 20px;
+}
+
+.authorization {
+	color: #fff;
+    text-align: center;
+    line-height: 63px;
+    font-size: 22px;
+}
+
+.popup-name{
+	color: #fff;
+	padding-top: 17px;
+}
+
+.popup-name-border, .popup-contacts-border{
+	width: 388px;
+	height: 39px;
+	background-color: #fff;
+	border-radius: 10px;
+    display: inline-block;
+    border: none;
+    padding: 10px;
+    outline: none;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.popup-contacts{
+	color: #fff;
+	padding-top: 17px;
+}
+
+.popup-button{
+	width: 254px;
+	height: 50px;
+	margin-top: 26px;
+	border-radius: 100px;
+	border: none;
+	background-color: #fff;
+	color:#0165B3;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 30px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+button:focus {
+	outline: none;
+}
+
+a.authorization-ref {
+	color:#fff;
+	text-decoration: underline;
+	font-size: 24px;
+}
+
+hr {
+	background-color: #0193DD;
+	height: 10px;
+	/*margin: 0 auto;*/
+}
+
+.reg-holder {
+	width: 1440px;
+	text-align: center;
+}
+
+.reg_title {
+	margin-left: 470px;
+	margin-top: 50px;
+	color: #fff;
+	width: 500px;
+	padding: 8px;
+    background-color: #0194DA;
+    border-radius: 100px;
+    display: block;
+	font-size: 30px;
+}
+
+.field p {
+	margin: 60px 0px 5px 0px;
+	font-size: 18px;
+	color: #0165B3;
+}
+
+.field_border, .mail_border, .organization_name_border, .birth_year_border {
+	margin-left: 410px;
+	display: block;
+	width: 618px;
+	height: 50px;
+	border: 1px solid #0293DC;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	outline: none;
+	padding: 10px;
+}
+
+.mail p, .organization_name p, .birth_year p{
+	margin: 5px 0px;
+	font-size: 18px;
+	color: #0165B3;
+}
+
+.reg_button {
+	color: #0194DA;
+	background: #fff;
+	margin: 100px;
+	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
+	border-radius: 100px;
+	width: 350px;
+	height: 61px;
+	font-size: 24px;
+	border: solid #0194DA;
+	display: inline-block;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.reg_button:hover {
+	background-color: #0194DA;
+	color: #fff;
+	border: none;
+}
+
+.reg_button:active {
+  transform: translateY(4px);
+}
+
+.contacts {
+	display: flex;
+	color: #0165B3;
+	margin-left: 100px;
+}
+
+.organization {
+	margin-left: 50px;
+	margin-left: 100px;
+}
+
+.numbers {
+	margin-left: 100px;
+}
+
+.organization, .number_1, .number_2, .e_mail {
+	font-size: 14px;
+}
+
+.e_mail {
+	text-align: right;
+}
+
+.row {
+	margin-top: 75px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+}
+
+img {
+	max-width:100%;
+}
+
+.logo_filfac {
+	align-items: right;
+}
+
+.page_title {
+	text-align: center;
+	width: 1440px;
+}
+
+.page_title_header {
+	margin-left:150px;
+	margin-top: 30px;
+	border: 1px solid #0165B3;
+	box-shadow: 5px 5px 5px rgba(1, 148, 219, 0.5);
+	border-radius: 100px;
+	color: #0165B3;
+	font-size: 24px;
+	width: 1139px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.info_image{
+	position: relative;
+	width: 1240px;
+	/*margin-top: 50px;*/
+}
+
+.info_image img {
+	position: absolute;
+	opacity: 0.20;
+	margin-left: 530px;
+	width: 300px;
+	height: 300px;
+}
+
+.info_image p, .download_ref {
+	font-size: 18px;
+	position: relative;
+	color: #0165B3;
+	margin-top: 5px;
+	margin-left: 5em;
+	padding-left: 5px;
+}
+
+.paragraphs {
+	margin-top: 80px;
+}
+
+.paragraphs .important {
+	color: #EE1B24;
+}
+
+.download_ref {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.download_ref:hover {
+	color: #0194DA;
+}
+
+.btn_try {
+	width: 1440px;
+	text-align: center;
+}
+
+.try_test_button {
+	color: #0194DA;
+	background: #fff;
+	margin: 100px;
+	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
+	border-radius: 100px;
+	width: 350px;
+	height: 61px;
+	font-size: 24px;
+	border: solid #0194DA;
+	display: inline-block;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.try_test_button:hover {
+	background-color: #0194DA;
+	color: #fff;
+	border: none;
+}
+
+.try_test_button:active {
+  transform: translateY(4px);
+}
+
+.rectangle {
+    width: 220px;
+    height: 45px;
+    background: #ffffff;
+	border: 1px #0264B1 solid;
+	border-radius: 60px;
+	box-shadow: 0.3em 0.3em 5px #81CAED;
+	text-align: center;
+	color: #0264B1;
+	padding: 9px; 
+}
+
+.box {
+	margin-left: 230px;
+	margin-bottom: 10px;
+	/*width: 953px; */
+	display: flex;
+	/*justify-content: space-between;*/
+}
+
+.knopka {
+	font-size: 40px;
+	text-align: center;
+	color: #0293DC; 
+	background: #FFFFFF; 
+	padding: 5px; 
+	border-radius: 10px;
+	border: 2px solid #0293DC;
+	margin-top: 20px;
+	margin-left: 15px;
+	box-shadow: 0.1em 0.1em 5px rgba(122,122,122,0.5);
+	width: 75px; 
+	height: 75px;
+} 
+	
+.knopka:hover { 
+	border: 2.5px solid #0264B1;
+}
+
+.task_list {
+	margin: 0 auto;
+	width: 1240px;
+}
