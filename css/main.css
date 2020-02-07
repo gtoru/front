@@ -1,7 +1,7 @@
 body {
 	/*шрифт норм чет не подключается*/
 	margin: 0 auto;
-	width: 1440px;
+	width: 1140px;
 }
 
 h6, a {
@@ -13,31 +13,23 @@ p {
 	font-size: 18px;
 }
 .nav {
-	width: 1318px;
+	width: 1140px;
 	display: flex;
 	justify-content: space-between;
 }
 
 .navbar {
 	margin-top: 1.5em;
-	/*margin-left: 5.5em;*/
-	/*margin: 0 auto;*/
 	margin-top: 2em;
-	width: 1440px;
+	width: 1140px;
 	border-radius: 100px;
-	/*display: flex;
-	justify-content: space-between;*/
+	margin-bottom: 20px;
 }
 
 .navbar-brand img{
 	width: 4em;
 	height: 4em;
 	margin-right: 2.1em;
-}
-
-
-.nav-item{
-	/*padding-right: 5.2em;*/
 }
 
 .carousel-item img{
@@ -134,17 +126,19 @@ a.authorization-ref {
 hr {
 	background-color: #0193DD;
 	height: 10px;
-	/*margin: 0 auto;*/
+	margin: 0;
 }
 
 .reg-holder {
-	width: 1440px;
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	padding-top: 62px;
+	width: 1140px;
 	text-align: center;
+	padding-bottom: 80px;
 }
 
 .reg_title {
-	margin-left: 470px;
-	margin-top: 50px;
+	margin-left: 310px;
 	color: #fff;
 	width: 500px;
 	padding: 8px;
@@ -161,7 +155,7 @@ hr {
 }
 
 .field_border, .mail_border, .organization_name_border, .birth_year_border {
-	margin-left: 410px;
+	margin-left: 250px;
 	display: block;
 	width: 618px;
 	height: 50px;
@@ -182,7 +176,7 @@ hr {
 .reg_button {
 	color: #0194DA;
 	background: #fff;
-	margin: 100px;
+	margin-top: 100px;
 	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
 	border-radius: 100px;
 	width: 350px;
@@ -205,17 +199,13 @@ hr {
 
 .contacts {
 	display: flex;
+	justify-content: space-between;
 	color: #0165B3;
-	margin-left: 100px;
-}
-
-.organization {
-	margin-left: 50px;
-	margin-left: 100px;
+	margin-top: 30px;
 }
 
 .numbers {
-	margin-left: 100px;
+	margin-left: -200px;
 }
 
 .organization, .number_1, .number_2, .e_mail {
@@ -226,10 +216,26 @@ hr {
 	text-align: right;
 }
 
-.row {
+/* .row {
+	width: 1140px;
 	margin-top: 75px;
-	margin-left: 100px;
 	margin-bottom: 20px;
+	margin-right: 0;
+	margin-left: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+
+} */
+
+/* HAHAHAHAHA */
+.footer {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
 }
 
 img {
@@ -240,14 +246,18 @@ img {
 	align-items: right;
 }
 
+.example-container {
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+
+}
+
 .page_title {
 	text-align: center;
-	width: 1440px;
+	width: 1140px;
+	padding-top: 62px;
 }
 
 .page_title_header {
-	margin-left:150px;
-	margin-top: 30px;
 	border: 1px solid #0165B3;
 	box-shadow: 5px 5px 5px rgba(1, 148, 219, 0.5);
 	border-radius: 100px;
@@ -259,17 +269,8 @@ img {
 }
 
 .info_image{
-	position: relative;
-	width: 1240px;
-	/*margin-top: 50px;*/
-}
-
-.info_image img {
-	position: absolute;
-	opacity: 0.20;
-	margin-left: 530px;
-	width: 300px;
-	height: 300px;
+	width: 1140px;
+	/* margin-top: 50px; */
 }
 
 .info_image p, .download_ref {
@@ -298,15 +299,19 @@ img {
 	color: #0194DA;
 }
 
+.btn-outline-primary {
+	background-color: #fff;
+}
+
 .btn_try {
-	width: 1440px;
+	width: 1140px;
 	text-align: center;
 }
 
 .try_test_button {
 	color: #0194DA;
 	background: #fff;
-	margin: 100px;
+	margin: 100px 0;
 	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
 	border-radius: 100px;
 	width: 350px;
@@ -325,4 +330,65 @@ img {
 
 .try_test_button:active {
   transform: translateY(4px);
+}
+
+.rectangle {
+    width: 220px;
+    height: 45px;
+    background: #ffffff;
+	border: 1px #0264B1 solid;
+	border-radius: 60px;
+	/* box-shadow: 0.3em 0.3em 5px #81CAED; */
+	text-align: center;
+	color: #0264B1;
+	padding: 9px;
+}
+
+.test-page-container {
+	padding-top: 40px;
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+
+}
+
+.box {
+	margin-left: 137px;
+	margin-bottom: 10px;
+	/*width: 953px; */
+	display: flex;
+	/*justify-content: space-between;*/
+}
+
+.knopka {
+	font-size: 40px;
+	text-align: center;
+	color: #0293DC; 
+	background: #FFFFFF; 
+	padding: 5px; 
+	border-radius: 10px;
+	border: 2px solid #0293DC;
+	margin-top: 20px;
+	margin-left: 15px;
+	box-shadow: 0.1em 0.1em 5px rgba(122,122,122,0.5);
+	width: 75px; 
+	height: 75px;
+} 
+	
+.knopka:hover { 
+	border: 2.5px solid #0264B1;
+}
+
+.task_list {
+	margin: 0 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.box-last {
+	margin-left: 358px;
+	margin-bottom: 0;
+	padding-bottom: 50px;
+}
+
+.time-left {
+	margin-right: -350px;
 }
