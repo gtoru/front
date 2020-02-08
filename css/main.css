@@ -12,8 +12,13 @@ h6, a {
 p {
 	font-size: 18px;
 }
+
+.header {
+	width: 1060px;
+}
+
 .nav {
-	width: 1140px;
+	/* width: 1140px; */
 	display: flex;
 	justify-content: space-between;
 }
@@ -22,14 +27,16 @@ p {
 	margin-top: 1.5em;
 	margin-top: 2em;
 	width: 1140px;
-	border-radius: 100px;
+	/* border-radius: 100px; */
 	margin-bottom: 20px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .navbar-brand img{
 	width: 4em;
 	height: 4em;
-	margin-right: 2.1em;
+	/* margin-right: 2.1em; */
 }
 
 .carousel-item img{
@@ -263,7 +270,8 @@ img {
 	border-radius: 100px;
 	color: #0165B3;
 	font-size: 24px;
-	width: 1139px;
+	width: 900px;
+	margin: 0 auto;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
@@ -391,4 +399,192 @@ img {
 
 .time-left {
 	margin-right: -350px;
+}
+
+.menu-button {
+	display: none;
+}
+
+@media (max-width: 1170px)
+{
+	.contacts {
+		width: 800px;
+		margin: auto;
+		margin-top: 30px;
+	}
+	.numbers {
+		margin: 0;
+		margin-left: -15px;
+	}
+	.e_mail {
+		text-align: left;
+	}
+	.footer {
+		width: 800px;
+		margin: auto;
+		margin-top: 30px;
+	}
+	/*Гамбургер*/
+	.menu-button {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 40px;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		border: none;
+		cursor: pointer;
+	}
+	.menu-button:before {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		transition: transform 0.2s;
+		margin-top: -8px;
+	}
+	.menu-button:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		transition: transform 0.2s;
+		margin-top: 8px;
+	}
+	.menu-button-active {
+		height: 0;
+	}
+	.menu-button-active:before {
+		transform: rotate(45deg);
+		margin-top: 0;
+	}
+	.menu-button-active:after {
+		transform: rotate(-45deg);
+		margin-top: 0;
+	}
+	.header {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 250px;
+		padding-bottom: 40px;
+	}
+	.main-container {
+		width: 800px;
+		margin: auto;
+	}
+	.reg-holder {
+		width: 800px;
+	}
+	.reg_title {
+		margin-left: 150px;
+	}
+	.field_border, .mail_border, .organization_name_border, .birth_year_border{
+		margin-left: 90px;
+	}
+	nav {
+		margin: 0;
+	}
+	.navbar{
+		width: 800px;
+	}
+	body {
+		width: 800px;
+	}
+}
+
+@media (max-width: 830px)
+{
+	body {
+		width: 500px;
+	}
+	.navbar{
+		width: 500px;
+	}
+	.main-container {
+		width: 500px;
+	}
+	.reg-holder {
+		width: 500px;
+	}
+	.reg_title {
+		margin: 0;
+	}
+	.field_border, .mail_border, .organization_name_border, .birth_year_border {
+		width: 500px;
+		margin: 0;
+	}
+	.contacts {
+		width: 500px;
+		display: flex;
+		flex-direction: column;
+	}
+	.numbers {
+		margin: 0;
+	}
+	.footer {
+		width: 500px;
+	}
+	.footer img {
+		max-width: 70%;
+		max-height: 70%;
+	}
+}
+
+@media (max-width: 520px)
+{
+	body {
+		width: 320px;
+	}
+	.navbar {
+		width: 320px;
+	}
+	.main-container {
+		width: 320px;
+	}
+	.reg-holder {
+		width: 320px;
+	}
+	.reg_title {
+		width: 320px;
+		font-size: 24px;
+	}
+	.reg_button {
+		width: 300px;
+		font-size: 20px;
+	}
+	.field_border,
+	.mail_border,
+	.organization_name_border,
+	.birth_year_border {
+		width: 320px;
+		margin: 0;
+		height: 35px;
+		font-size: 14px;
+	}
+	.field p, .mail p, .organization_name p, .birth_year p {
+		font-size: 16px;
+	}
+	.contacts {
+		width: 320px;
+		display: flex;
+		flex-direction: column;
+	}
+	.numbers {
+		margin: 0;
+	}
+	.footer {
+		width: 320px;
+	}
 }
