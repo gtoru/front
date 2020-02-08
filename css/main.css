@@ -35,8 +35,6 @@ p {
 
 .navbar-brand img{
 	width: 4em;
-	height: 4em;
-	/* margin-right: 2.1em; */
 }
 
 .carousel-item img{
@@ -519,6 +517,10 @@ img {
 	.navbar{
 		width: 800px;
 	}
+	.navbar-brand img {
+		max-width: 80%;
+		
+	}
 	body {
 		width: 800px;
 	}
@@ -531,6 +533,9 @@ img {
 	}
 	.navbar{
 		width: 500px;
+	}
+	.navbar-brand img {
+		max-width: 70%;
 	}
 	.main-container {
 		width: 500px;
@@ -569,6 +574,9 @@ img {
 	}
 	.navbar {
 		width: 320px;
+	}
+	.navbar-brand img {
+		max-width: 50%;
 	}
 	.main-container {
 		width: 320px;
