@@ -1,7 +1,7 @@
 body {
 	/*шрифт норм чет не подключается*/
 	margin: 0 auto;
-	width: 1440px;
+	width: 1140px;
 }
 
 h6, a {
@@ -13,28 +13,34 @@ p {
 	font-size: 18px;
 }
 
+.header {
+	width: 1060px;
+}
+
+.nav {
+	/* width: 1140px; */
+	display: flex;
+	justify-content: space-between;
+}
+
 .navbar {
-	/*margin-top: 1.5em;
-	margin-left: 5.5em;*/
-	margin: auto;
+	margin-top: 1.5em;
 	margin-top: 2em;
-	width: 1440px;
-	border-radius: 100px;
+	width: 1140px;
+	/* border-radius: 100px; */
+	margin-bottom: 20px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .navbar-brand img{
 	width: 4em;
 	height: 4em;
-	margin-right: 2.1em;
-}
-
-
-.nav-item{
-	padding-right: 5.2em;
+	/* margin-right: 2.1em; */
 }
 
 .carousel-item img{
-	width: 12em;
+	/*width: 12em;*/
 	height: 12em;
 }
 
@@ -127,16 +133,19 @@ a.authorization-ref {
 hr {
 	background-color: #0193DD;
 	height: 10px;
+	margin: 0;
 }
 
 .reg-holder {
-	width: 1440px;
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	padding-top: 62px;
+	width: 1140px;
 	text-align: center;
+	padding-bottom: 80px;
 }
 
 .reg_title {
-	margin-left: 470px;
-	margin-top: 50px;
+	margin-left: 310px;
 	color: #fff;
 	width: 500px;
 	padding: 8px;
@@ -153,7 +162,7 @@ hr {
 }
 
 .field_border, .mail_border, .organization_name_border, .birth_year_border {
-	margin-left: 410px;
+	margin-left: 250px;
 	display: block;
 	width: 618px;
 	height: 50px;
@@ -174,7 +183,7 @@ hr {
 .reg_button {
 	color: #0194DA;
 	background: #fff;
-	margin: 100px;
+	margin-top: 100px;
 	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
 	border-radius: 100px;
 	width: 350px;
@@ -197,16 +206,13 @@ hr {
 
 .contacts {
 	display: flex;
+	justify-content: space-between;
 	color: #0165B3;
-}
-
-.organization {
-	margin-left: 50px;
-	margin-left: 100px;
+	margin-top: 30px;
 }
 
 .numbers {
-	margin-left: 100px;
+	margin-left: -200px;
 }
 
 .organization, .number_1, .number_2, .e_mail {
@@ -217,10 +223,26 @@ hr {
 	text-align: right;
 }
 
-.row {
+/* .row {
+	width: 1140px;
 	margin-top: 75px;
-	margin-left: 100px;
 	margin-bottom: 20px;
+	margin-right: 0;
+	margin-left: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+
+} */
+
+/* HAHAHAHAHA */
+.footer {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
 }
 
 img {
@@ -229,4 +251,340 @@ img {
 
 .logo_filfac {
 	align-items: right;
+}
+
+.example-container {
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+
+}
+
+.page_title {
+	text-align: center;
+	width: 1140px;
+	padding-top: 62px;
+}
+
+.page_title_header {
+	border: 1px solid #0165B3;
+	box-shadow: 5px 5px 5px rgba(1, 148, 219, 0.5);
+	border-radius: 100px;
+	color: #0165B3;
+	font-size: 24px;
+	width: 900px;
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.info_image{
+	width: 1140px;
+	/* margin-top: 50px; */
+}
+
+.info_image p, .download_ref {
+	font-size: 18px;
+	position: relative;
+	color: #0165B3;
+	margin-top: 5px;
+	margin-left: 5em;
+	padding-left: 5px;
+}
+
+.paragraphs {
+	margin-top: 80px;
+}
+
+.paragraphs .important {
+	color: #EE1B24;
+}
+
+.download_ref {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.download_ref:hover {
+	color: #0194DA;
+}
+
+.btn-outline-primary {
+	background-color: #fff;
+}
+
+.btn_try {
+	width: 1140px;
+	text-align: center;
+}
+
+.try_test_button {
+	color: #0194DA;
+	background: #fff;
+	margin: 100px 0;
+	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
+	border-radius: 100px;
+	width: 350px;
+	height: 61px;
+	font-size: 24px;
+	border: solid #0194DA;
+	display: inline-block;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.try_test_button:hover {
+	background-color: #0194DA;
+	color: #fff;
+	border: none;
+}
+
+.try_test_button:active {
+  transform: translateY(4px);
+}
+
+.rectangle {
+    width: 220px;
+    height: 45px;
+    background: #ffffff;
+	border: 1px #0264B1 solid;
+	border-radius: 60px;
+	/* box-shadow: 0.3em 0.3em 5px #81CAED; */
+	text-align: center;
+	color: #0264B1;
+	padding: 9px;
+}
+
+.test-page-container {
+	padding-top: 40px;
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+
+}
+
+.box {
+	margin-left: 137px;
+	margin-bottom: 10px;
+	/*width: 953px; */
+	display: flex;
+	/*justify-content: space-between;*/
+}
+
+.knopka {
+	font-size: 40px;
+	text-align: center;
+	color: #0293DC; 
+	background: #FFFFFF; 
+	padding: 5px; 
+	border-radius: 10px;
+	border: 2px solid #0293DC;
+	margin-top: 20px;
+	margin-left: 15px;
+	box-shadow: 0.1em 0.1em 5px rgba(122,122,122,0.5);
+	width: 75px; 
+	height: 75px;
+} 
+	
+.knopka:hover { 
+	border: 2.5px solid #0264B1;
+}
+
+.task_list {
+	margin: 0 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.box-last {
+	margin-left: 358px;
+	margin-bottom: 0;
+	padding-bottom: 50px;
+}
+
+.time-left {
+	margin-right: -350px;
+}
+
+.menu-button {
+	display: none;
+}
+
+@media (max-width: 1170px)
+{
+	.contacts {
+		width: 800px;
+		margin: auto;
+		margin-top: 30px;
+	}
+	.numbers {
+		margin: 0;
+		margin-left: -15px;
+	}
+	.e_mail {
+		text-align: left;
+	}
+	.footer {
+		width: 800px;
+		margin: auto;
+		margin-top: 30px;
+	}
+	/*Гамбургер*/
+	.menu-button {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 40px;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		border: none;
+		cursor: pointer;
+	}
+	.menu-button:before {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		transition: transform 0.2s;
+		margin-top: -8px;
+	}
+	.menu-button:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		width: 30px;
+		height: 2px;
+		background-color: #0165B3;
+		transition: transform 0.2s;
+		margin-top: 8px;
+	}
+	.menu-button-active {
+		height: 0;
+	}
+	.menu-button-active:before {
+		transform: rotate(45deg);
+		margin-top: 0;
+	}
+	.menu-button-active:after {
+		transform: rotate(-45deg);
+		margin-top: 0;
+	}
+	.header {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 250px;
+		padding-bottom: 40px;
+	}
+	.main-container {
+		width: 800px;
+		margin: auto;
+	}
+	.reg-holder {
+		width: 800px;
+	}
+	.reg_title {
+		margin-left: 150px;
+	}
+	.field_border, .mail_border, .organization_name_border, .birth_year_border{
+		margin-left: 90px;
+	}
+	nav {
+		margin: 0;
+	}
+	.navbar{
+		width: 800px;
+	}
+	body {
+		width: 800px;
+	}
+}
+
+@media (max-width: 830px)
+{
+	body {
+		width: 500px;
+	}
+	.navbar{
+		width: 500px;
+	}
+	.main-container {
+		width: 500px;
+	}
+	.reg-holder {
+		width: 500px;
+	}
+	.reg_title {
+		margin: 0;
+	}
+	.field_border, .mail_border, .organization_name_border, .birth_year_border {
+		width: 500px;
+		margin: 0;
+	}
+	.contacts {
+		width: 500px;
+		display: flex;
+		flex-direction: column;
+	}
+	.numbers {
+		margin: 0;
+	}
+	.footer {
+		width: 500px;
+	}
+	.footer img {
+		max-width: 70%;
+		max-height: 70%;
+	}
+}
+
+@media (max-width: 520px)
+{
+	body {
+		width: 320px;
+	}
+	.navbar {
+		width: 320px;
+	}
+	.main-container {
+		width: 320px;
+	}
+	.reg-holder {
+		width: 320px;
+	}
+	.reg_title {
+		width: 320px;
+		font-size: 24px;
+	}
+	.reg_button {
+		width: 300px;
+		font-size: 20px;
+	}
+	.field_border,
+	.mail_border,
+	.organization_name_border,
+	.birth_year_border {
+		width: 320px;
+		margin: 0;
+		height: 35px;
+		font-size: 14px;
+	}
+	.field p, .mail p, .organization_name p, .birth_year p {
+		font-size: 16px;
+	}
+	.contacts {
+		width: 320px;
+		display: flex;
+		flex-direction: column;
+	}
+	.numbers {
+		margin: 0;
+	}
+	.footer {
+		width: 320px;
+	}
 }
