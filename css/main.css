@@ -68,6 +68,41 @@ p {
 	#0165B3;
 }
 
+#makeDark {
+	background: rgba(102, 102, 102, 0.5);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#makeDark:target {
+	display: block;
+}
+
+.close {
+	display: inline-block;
+	border: none;
+	color: #fff;
+	padding: 0 12px;
+	margin: 10px;
+	text-decoration: none;
+	background: #EE1B24;
+	font-size: 14pt;
+	cursor: pointer;
+	border-radius: 100px;
+	height: 35px;
+	width: 35px;
+	padding: 6px;
+}
+
+.close:hover {
+	background: #EE1B24;
+	color: #fff;
+}
+
 .authorization-border{
 	height: 63px;
 	width: 255px;
@@ -75,6 +110,7 @@ p {
     display: inline-block;
 	border-radius: 100px;
 	margin-top: 20px;
+	margin-left: 50px;
 }
 
 .authorization {
@@ -104,6 +140,26 @@ p {
 .popup-contacts{
 	color: #fff;
 	padding-top: 17px;
+}
+.password {
+	position: relative;
+}
+.password-control {
+	position: absolute;
+	top: 11px;
+	right: 80px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
+
+input::-ms-reveal {
+	background: #c00;
+	color: #fff;
 }
 
 .popup-button{
@@ -494,6 +550,136 @@ img {
 	margin-bottom: 30px;
 	margin-left: 50px;
 }
+
+.admin-container {
+	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+
+.admin-title {
+	width: 537px;
+	background-color: #0194DA;
+	border-radius: 100px;
+	color: #fff;
+	height: 40px;
+	text-align: center;
+	margin-left: 287px;
+	font-size: 22px;
+	line-height: 30px;
+	padding: 5px;
+}
+
+.admin-main {
+	display: flex;
+	justify-content: space-between;
+}
+
+.users-info {
+	margin-top: 39px;
+	width: 315px;
+}
+
+.users-info-title {
+	font-size: 19px;
+	line-height: 26px;
+	border: 1px solid #0165B3;
+	border-radius: 100px;
+	
+	height: 45px;
+	background-color: #fff;
+	text-align: center;
+	padding: 7px;
+	color: #0264B1;
+}
+
+.number-users p {
+	color: #0264B1;
+	margin-top: 14px;
+}
+
+.number-users .number-of-users {
+	text-decoration: none;
+}
+
+.download-info {
+	color: #0165B3;
+	font-size: 19px;
+	line-height: 26px;
+	text-decoration: underline;
+}
+
+.test-redactor {
+	width: 721px;
+}
+
+.redactor-title {
+	color: #0264B1;
+	font-size: 19px;
+	line-height: 26px;
+	margin-top: 39px;
+	border: 1px solid #0165B3;
+	border-radius: 100px;
+	background-color: #fff;
+	text-align: center;
+	padding: 7px;
+}
+
+.test-redactor-main {
+	display: flex;
+	justify-content: space-between;
+}
+
+.existing-tests {
+	margin-top: 25px;
+	width: 350px;
+}
+
+.existing-tests a{
+	font-size: 18px;
+	line-height: 15px;
+	text-decoration: underline;
+	color: #0165B3;
+}
+
+.test-cont {
+	margin-bottom: 3px;
+}
+
+.existing-tests .delete-test {
+	margin-left: 20px;
+	color: #fff;
+	font-weight: bold;
+	background: #EE1B24;
+	border-radius: 20px;
+	width: 25px;
+	height: 25px;
+	border: none;
+}
+.delete-test .delete-test-cross {
+    color: #fff;
+	text-decoration: none;
+}
+.add-test {
+	margin-top: 25px;
+}
+
+.add {
+	display: inline-block;
+	background: #0293DC;
+	border-radius: 100px;
+	border: none;
+	color: #fff;
+	text-decoration: none;
+	width: 302px;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 25px;
+	height: 35px;
+}
+
+
+
 
 @media (max-width: 1170px)
 {
