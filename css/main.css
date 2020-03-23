@@ -141,9 +141,11 @@ p {
 	color: #fff;
 	padding-top: 17px;
 }
+
 .password {
 	position: relative;
 }
+
 .password-control {
 	position: absolute;
 	top: 11px;
@@ -153,13 +155,9 @@ p {
 	height: 20px;
 	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 }
+
 .password-control.view {
 	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
-}
-
-input::-ms-reveal {
-	background: #c00;
-	color: #fff;
 }
 
 .popup-button{
@@ -194,10 +192,10 @@ hr {
 
 .reg-holder {
 	background: url('../images/bgrnd.png') 100% 100% no-repeat;
-	padding-top: 62px;
+	padding-top: 40px;
 	width: 1140px;
 	text-align: center;
-	padding-bottom: 80px;
+	padding-bottom: 50px;
 }
 
 .reg_title {
@@ -208,7 +206,7 @@ hr {
     background-color: #0194DA;
     border-radius: 100px;
     display: block;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .field p {
@@ -217,11 +215,17 @@ hr {
 	color: #0165B3;
 }
 
-.field_border, .mail_border, .organization_name_border, .birth_year_border {
+.name_border,
+.field_border,
+.mail_border,
+.city_border,
+.organization_name_border,
+.birth_year_border,
+.pin_border {
 	margin-left: 250px;
 	display: block;
 	width: 618px;
-	height: 50px;
+	height: 40px;
 	border: 1px solid #0293DC;
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -230,20 +234,44 @@ hr {
 	padding: 10px;
 }
 
-.mail p, .organization_name p, .birth_year p{
+.mail p,
+.organization_name p,
+.birth_year p,
+.name p,
+.city p,
+.field p,
+.pin p {
 	margin: 5px 0px;
 	font-size: 18px;
 	color: #0165B3;
 }
 
+.consent {
+	margin-top: 15px;
+	color: #0165B3;
+}
+
+.pin {
+	position: relative;
+}
+
+.password-control-reg {
+	top: 43px;
+    right: 290px;
+}
+
+/* .pin_border {
+	background:#fff url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+} */
+
 .reg_button {
 	color: #0194DA;
 	background: #fff;
-	margin-top: 100px;
+	margin-top: 40px;
 	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
 	border-radius: 100px;
 	width: 350px;
-	height: 61px;
+	height: 50px;
 	font-size: 24px;
 	border: solid #0194DA;
 	display: inline-block;

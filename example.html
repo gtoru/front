@@ -33,7 +33,7 @@
 				</li>
 				<!-- </div> -->
 				<li class="nav-item">
-					<button class="btn btn-outline-primary" onclick="window.location.href = 'authorization.html';">ВОЙТИ</button>
+					<a href="#makeDark"><button class="btn btn-outline-primary">ВОЙТИ</button></a>
 				</li>
 			</ul>
 		</div>
@@ -41,6 +41,38 @@
 	</nav>
 	<hr>
 	<div class="example-container">
+		<div id="makeDark">
+			<div class="popup-holder authorization-popup-holder">
+				<a href="#" class="close">×</a>
+				<div class="popup-bg"></div>
+				<div class="close-popup ico"></div>
+				<div class="popup-wrapper authorization-popup">
+					<div class="authorization-border">
+						<h6 class="authorization">АВТОРИЗАЦИЯ</h6>
+					</div>
+					<div>
+						<p class="popup-contacts">ЭЛЕКТРОННАЯ ПОЧТА</p>
+					</div>
+					<div>
+						<input class="popup-contacts-border" type="text" placeholder="введите ваш e-mail" name="login">
+					</div>
+					<div>
+						<p class="popup-name">ПАРОЛЬ</p>
+					</div>
+					<div class="password">
+						<input id="password-input" class="popup-name-border" type="password" placeholder="введите пароль"
+							name="password">
+						<a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+					</div>
+					<div>
+						<button class="popup-button">ВОЙТИ</button>
+					</div>
+					<div>
+						<a href="registration.html" class="authorization-ref">Ещё не зарегистирированы?</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="page_title">
 			<h2 class="page_title_header">Здесь вы можете посмотреть примерный вариант ГТО по русскому языку</h2>
 		</div>

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body>
+<body onload="refresh();">
 
 	<nav class="navbar navbar-expand-sm">
 		<a class="navbar-brand" href="index.html">
@@ -49,7 +49,10 @@
 			<!-- <button type="button" class="btn btn-outline-primary d-block mr-auto" >Список всех заданий</button> -->
 			<div class="rectangle">Список всех заданий</div>
 			<div class="rectangle time-left">Времени осталось:</div>
-			<div class="rectangle">А времени не осталось ):</div>
+			<div class="rectangle">
+				<span id="timer"></span>
+				<div id="tut"></div>
+			</div>
 		</div>
 		<div class="box" style = "margin-top: 50px;">
 			<button class = "knopka">1</button> 
@@ -112,6 +115,9 @@
 			<img src="images/filfac_logo.png">
 		</li>
 	</ul>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
