@@ -1,0 +1,23 @@
+name: "Build Image"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_image_job:
+    runs-on: ubuntu-latest
+    name: Publish Docker image
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker Login
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u gtoru --password-stdin
+      - name: Build Historical Image
+        run: docker build -t docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER --target deploy .
+      - name: Publish Historical Image
+        run: docker push docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER
+      - name: Build Latest Image
+        run: docker build -t docker.pkg.github.com/gtoru/front/front:latest --target deploy .
+      - name: Publish Latest Image
+        run: docker push docker.pkg.github.com/gtoru/front/front:latest
