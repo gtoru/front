@@ -18,6 +18,6 @@ jobs:
       - name: Publish Historical Image
         run: docker push docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER
       - name: Build Latest Image
-        run: docker build -t docker.pkg.github.com/gtoru/front/front:latest --target deploy .
+        run: docker build -t docker.pkg.github.com/gtoru/front/front --target deploy .
       - name: Publish Latest Image
-        run: docker push docker.pkg.github.com/gtoru/front/front:latest
+        run: docker push docker.pkg.github.com/gtoru/front/front
