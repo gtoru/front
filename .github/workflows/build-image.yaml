@@ -11,6 +11,8 @@ jobs:
     name: Publish Docker image
     steps:
       - uses: actions/checkout@v2
+      - name: Docker Login
+        run: docker login docker.pkg.github.com -u gtoru -p ${{ secrets.GITHUB_TOKEN }}
       - name: Build Image
         run: docker build -t docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER --target deploy .
       - name: Publish Image
