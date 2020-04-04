@@ -53,3 +53,8 @@ function check() {
     else
         submit.disabled = 'disabled';
 }
+
+function getBaseUrl() {
+    let base_url = window.location.href;
+    console.log(base_url);
+}
