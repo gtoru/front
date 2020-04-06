@@ -4,7 +4,9 @@
   "description": "спариваем фронт с бэком",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/gtoru/front/issues"
   },
-  "homepage": "https://github.com/gtoru/front#readme"
+  "homepage": "https://github.com/gtoru/front#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@gtoru/js-client": "^1.1.2"
+  }
 }

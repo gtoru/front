@@ -58,3 +58,5 @@ function getBaseUrl() {
     let base_url = window.location.href;
     console.log(base_url);
 }
+
+console.log('Hello, BLIAT!')
