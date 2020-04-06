@@ -1,6 +1,3 @@
-// $(document).ready(function(){
-//  $('.header').height($(window).height());
-// })
 
 var menuButton = document.querySelector('.menu-button');
 var menu = document.querySelector('.header');
@@ -59,4 +56,4 @@ function getBaseUrl() {
     console.log(base_url);
 }
 
-console.log('Hello, BLIAT!')
+console.log("Hi666");
