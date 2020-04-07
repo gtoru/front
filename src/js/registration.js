@@ -7,6 +7,8 @@ let client = new AuthClient();
 
 
 registration.onclick = function() {
+    // todo: не обязатльно так называть имена, let определяет область видимости внутри данной функции
+    // поэтом конфликтов имен скорее всего не будет
     let _name = document.getElementById('name').value;
     let _birthYear = document.getElementById('birthYear').value;
     let _mail = document.getElementById('mail').value;
@@ -17,7 +19,9 @@ registration.onclick = function() {
 
     const email = _mail;
     const password = _password;
-
+    // todo: если это будет отправка на сервер, то можещь собрать все переменные
+    // name, mail, password и т.д. и сунуть их в объект, например
+    // const registrationInfo = {name, mail, password, ...} это создаст объект с этими полями (см. деструктуризация)
 
 
     document.location.href = "testing.html";
