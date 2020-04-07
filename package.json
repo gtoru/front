@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack && exit 0",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "serv": "static build"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,8 @@
   "devDependencies": {
     "html-webpack-plugin": "^4.0.4",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  }
+  },
+  "dependencies": {}
 }

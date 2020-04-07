@@ -14,14 +14,14 @@ menuButton.addEventListener('click', function () {
 
 // todo: правильнее назвать togglePasswordDisplay
 // в js'e обычно не называют через '_'
-function show_hide_password(target) {
-    console.log(target)
+function show_hide_password(event) {
+    //console.log(target)
     var input = document.getElementById('password-input');
     if (input.getAttribute('type') == 'password') {
-        input.classList.add('view');
+        event.target.classList.add('view');
         input.setAttribute('type', 'text');
     } else {
-        input.classList.remove('view');
+        event.target.classList.remove('view');
         input.setAttribute('type', 'password');
     }
     return false;
