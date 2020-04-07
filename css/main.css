@@ -147,6 +147,7 @@ p {
 }
 
 .password-control {
+	border: none;
 	position: absolute;
 	top: 11px;
 	right: 80px;
@@ -156,7 +157,7 @@ p {
 	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 }
 
-.password-control.view {
+.password-control .view {
 	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
 }
 

@@ -9,8 +9,8 @@ menuButton.addEventListener('click', function () {
 })
 
 // todo: Проще всего добавлять эвенты прям на элемент DOM
-// const passwordControl = document.querySelector('.password-control');
-// passwordControl.addEventListener('click', show_hide_password);
+ const passwordControl = document.querySelector('.password-control');
+ passwordControl.addEventListener('click', show_hide_password);
 
 // todo: правильнее назвать togglePasswordDisplay
 // в js'e обычно не называют через '_'
