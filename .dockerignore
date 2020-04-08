@@ -1,3 +1,6 @@
 .gitattributes
 .gitignore
 Dockerfile
+node_modules
+build
+.github
