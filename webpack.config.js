@@ -1,21 +1,30 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+//var MiniCssExtractPlugin = require('mini-css-extract-plugin')
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/app.js',
+    
     output: {
         filename: 'bundle.js',
+        
         path: path.resolve(__dirname, 'build'),
     },
     module: {
         rules: [{
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
-            })
-        }]
+            
+            test: /\.(scss|css)$/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+            },{
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            }
+        ]
     },
 // todo: если всё же хочешь писать onclick в html, то отключи минимизацию бандла
 // иначе все именованые функции превратятся в анонимные или в лучше случае названы одной буквой
@@ -28,7 +37,7 @@ module.exports = {
 // чтобы подключить используй html-webpack-plugin
 // З.Ы. осторожней с вебпаком на раннем этапе, можно до суицида дойти
     plugins: [
-        new ExtractTextPlugin('style.css')
+        //new MiniCssExtractPlugin('style.css')
         // new HtmlWebpackPlugin({
         //   template: './index.html',
         //   inject: true,
