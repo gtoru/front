@@ -154,11 +154,11 @@ p {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
 }
 
 .password-control.view {
-	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+	background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 }
 
 .popup-button{
@@ -192,7 +192,7 @@ hr {
 }
 
 .reg-holder {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png');
 	padding-top: 40px;
 	width: 1140px;
 	text-align: center;
@@ -309,7 +309,7 @@ hr {
 }
 
 .question_container {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 }
 
 .circle {
@@ -430,7 +430,7 @@ img {
 }
 
 .example-container {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 
 }
 
@@ -532,7 +532,7 @@ img {
 
 .test-page-container {
 	padding-top: 40px;
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 
 }
 
@@ -587,7 +587,7 @@ img {
 }
 
 .testing-container {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 }
 
 .gto-text {
@@ -643,7 +643,7 @@ img {
 }
 
 .information-container {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 }
 
 .information-title {
@@ -675,7 +675,7 @@ img {
 }
 
 .admin-container {
-	background: url('../images/bgrnd.png') 100% 100% no-repeat;
+	background: url('/images/bgrnd.png') 100% 100% no-repeat;
 	padding-top: 15px;
 	padding-bottom: 50px;
 }

@@ -1,10 +1,13 @@
 const path = require('path');
 //var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
+    // entry: './src/app.js',
+    entry: {
+        app: './src/app.js'
+    },
     
     output: {
         filename: 'bundle.js',
@@ -43,5 +46,17 @@ module.exports = {
         //   inject: true,
         //   filename: 'index.html'
         // })
+        new HtmlWebpackPlugin({
+                template: './index.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'index.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './registration.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'registration.html'
+            })
       ]
 };
