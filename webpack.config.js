@@ -13,23 +13,49 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
     },
     module: {
-        rules: [{
+        // rules: [{
             
+        //     test: /\.(scss|css)$/,
+        //     use: ['style-loader', 'css-loader', 'sass-loader']
+        //     },{
+        //         test: /\.(png|jpe?g|gif|svg)$/i,
+        //         use: [
+        //             {
+        //                 loader: 'file-loader',
+        //                 options : {
+        //                     name: '[name].[ext]',
+        //                     outputPath: 'images/'
+        //                 }
+        //             },
+        //         ],
+        //     }
+        // ]
+        rules: [{
             test: /\.(scss|css)$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-            },{
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options : {
-                            name: '[name].[ext]',
-                            outputPath: 'images/'
-                        }
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: (resourcePath, context) => {
+                        return path.relative(path.dirname(resourcePath), context) + '/';
                     },
-                ],
-            }
-        ]
+                },
+            },
+            'css-loader',
+        ],
+        },
+    {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+                options : {
+                    name: '[name].[ext]',
+                    outputPath: 'images/'
+                }
+            },
+        ],
+    }
+    ]
     },
 // todo: если всё же хочешь писать onclick в html, то отключи минимизацию бандла
 // иначе все именованые функции превратятся в анонимные или в лучше случае названы одной буквой
@@ -44,7 +70,7 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'style.css',
-            // chunkFilename: '[id].css',
+            chunkFilename: '[id].css',
         }),
         new HtmlWebpackPlugin({
                 template: './index.html',
