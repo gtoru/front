@@ -4,10 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ГТО по русскому языку</title>
-	<!-- <script type="text/javascript" src="js/main.js"></script> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- <link rel="stylesheet" href="css/jquery.fancybox.min.css"> -->
+    <link rel='stylesheet' href='style.css'>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm">
@@ -58,7 +57,8 @@
 				<input required id="password-input" class="pin_border" type="password"
 					placeholder="придумайте пароль"
 					name="password">
-				<a href="#" class="password-control password-control-reg" onclick="return show_hide_password(this);"></a>
+				<!-- <a href="#" class="password-control password-control-reg" onclick="return show_hide_password(this);"></a> -->
+				<div class="password-control password-control-reg"></div>
 			</div>
 			<div class="city">
 				<p>Город*</p>
@@ -74,7 +74,7 @@
 				<input id="field" type="text" class="field_border" placeholder="введите вашу сферу деятельности">
 			</div>
 			<div class="consent">
-				<input type="checkbox" id="politics" onclick="check();" autocomplete="off" />
+				<input type="checkbox" id="politics" class="check-consent" onclick="check();" autocomplete="off" />
 				Нажимая на "зарегестрироваться", я даю <a href="Согласие.doc">согласие на обработку персональных данных.</a>
 			</div>
 			<button id="registration" class="reg_button" type="submit" name="submit" class="submit" disabled=""
@@ -142,7 +142,7 @@
 		</li>
 	</ul>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-	<script src="js/jquery.fancybox.min.js"></script>
-	<script src="build/bundle.js"></script>
+	<!-- <script src="js/jquery.fancybox.min.js"></script> -->
+	<script type="text/javascript" src="./build/bundle.js"></script>
 </body>
 </html>

@@ -59,9 +59,12 @@ function refresh() {
     }
 }
 
+const consentData = document.querySelector('.check-consent');
+consentData.addEventListener('click', check);
+
+
 function check() {
     var submit = document.getElementsByName('submit')[0];
-    // todo: без скобочек условия пишут только кончелыги на C#
     if (document.getElementById('politics').checked)
         submit.disabled = '';
     else

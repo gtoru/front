@@ -1,10 +1,8 @@
 const path = require('path');
-//var MiniCssExtractPlugin = require('mini-css-extract-plugin')
-//const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    // entry: './src/app.js',
     entry: {
         app: './src/app.js'
     },
@@ -20,10 +18,14 @@ module.exports = {
             test: /\.(scss|css)$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
             },{
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
+                        options : {
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
                     },
                 ],
             }
@@ -40,12 +42,10 @@ module.exports = {
 // чтобы подключить используй html-webpack-plugin
 // З.Ы. осторожней с вебпаком на раннем этапе, можно до суицида дойти
     plugins: [
-        //new MiniCssExtractPlugin('style.css')
-        // new HtmlWebpackPlugin({
-        //   template: './index.html',
-        //   inject: true,
-        //   filename: 'index.html'
-        // })
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
+            // chunkFilename: '[id].css',
+        }),
         new HtmlWebpackPlugin({
                 template: './index.html',
                 inject: true,
@@ -57,6 +57,36 @@ module.exports = {
                 inject: true,
                 chunks: ['app'],
                 filename: 'registration.html'
-            })
+            }),
+            new HtmlWebpackPlugin({
+                template: './example.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'example.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './testing.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'testing.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './information.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'information.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './question.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'question.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './test_page.html',
+                inject: true,
+                chunks: ['app'],
+                filename: 'test_page.html'
+            }),
       ]
 };
