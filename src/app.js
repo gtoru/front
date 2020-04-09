@@ -8,5 +8,4 @@ function importAll(r) {
 }
 
 const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
-
-// import './js/registration.js';
+const docs = importAll(require.context('../info', false, /\.(doc|docx)$/));

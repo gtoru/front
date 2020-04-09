@@ -54,7 +54,17 @@ module.exports = {
                 }
             },
         ],
-    }
+    },
+    {
+        test: /\.(doc|docx)$/i,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'info/'
+            }
+        }, ],
+    },
     ]
     },
 // todo: если всё же хочешь писать onclick в html, то отключи минимизацию бандла

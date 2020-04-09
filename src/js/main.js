@@ -10,7 +10,8 @@ menuButton.addEventListener('click', function () {
 
 // todo: Проще всего добавлять эвенты прям на элемент DOM
  const passwordControl = document.querySelector('.password-control');
- passwordControl.addEventListener('click', show_hide_password);
+ if (passwordControl)
+    passwordControl.addEventListener('click', show_hide_password);
 
 // todo: правильнее назвать togglePasswordDisplay
 // в js'e обычно не называют через '_'
@@ -60,7 +61,8 @@ function refresh() {
 }
 
 const consentData = document.querySelector('.check-consent');
-consentData.addEventListener('click', check);
+if (consentData)
+    consentData.addEventListener('click', check);
 
 
 function check() {
@@ -75,3 +77,5 @@ function getBaseUrl() {
     let base_url = window.location.href;
     console.log(base_url);
 }
+
+console.log("FUCK");
