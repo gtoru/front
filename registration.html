@@ -40,21 +40,23 @@
 		<hr>
 		<div class="reg-holder" style="background: url('images/bgrnd.png')">
 			<div class="reg_title">Регистрация</div>
+			<form id="formUser">
+			
 			<div class="name">
 				<p>ФИО*</p>
-				<input id="name" required type="text" class="name_border" placeholder="введите ФИО">
+				<input name="name" id="name" required type="text" class="name_border" placeholder="введите ФИО">
 			</div>
 			<div class="birth_year">
 				<p>Год рождения*</p>
-				<input id="birthYear" required type="text" class="birth_year_border" placeholder="введите год своего рождения">
+				<input type="date" name="birthDay" id="birthYear" required type="text" class="birth_year_border" placeholder="введите год своего рождения">
 			</div>
 			<div class="mail">
 				<p>Электронная почта*</p>
-				<input id="mail" required type="text" class="mail_border" placeholder="введите ваш e-mail">
+				<input name="email" id="mail" required type="text" class="mail_border" placeholder="введите ваш e-mail">
 			</div>
 			<div class="pin">
 				<p>Пароль*</p>
-				<input required id="password-input" class="pin_border" type="password"
+				<input name="password" required id="password-input" class="pin_border" type="password"
 					placeholder="придумайте пароль"
 					name="password">
 				<!-- <a href="#" class="password-control password-control-reg" onclick="return show_hide_password(this);"></a> -->
@@ -62,23 +64,25 @@
 			</div>
 			<div class="city">
 				<p>Город*</p>
-				<input id="city" required type="text" class="city_border" placeholder="введите ваш город">
+				<input name="address" id="city" required type="text" class="city_border" placeholder="введите ваш город">
 			</div>
 			<div class="organization_name">
 				<p>Название организации*</p>
-				<input id="organizationName" required type="text" class="organization_name_border"
+				<input name="employer" id="organizationName" required type="text" class="organization_name_border"
 					placeholder="введите название организации">
 			</div>
 			<div class="field">
 				<p>Сфера деятельности</p>
-				<input id="field" type="text" class="field_border" placeholder="введите вашу сферу деятельности">
+				<input name="occupation" id="field" type="text" class="field_border" placeholder="введите вашу сферу деятельности">
 			</div>
 			<div class="consent">
 				<input type="checkbox" id="politics" class="check-consent" autocomplete="off" />
 				Нажимая на "зарегестрироваться", я даю <a href="Согласие.doc">согласие на обработку персональных данных.</a>
 			</div>
-			<button id="registration" class="reg_button" type="submit" name="submit" class="submit" disabled=""
+			<button id="registration" class="reg_button" type="submit" name="submit" disabled=""
 				onclick="window.location.href = 'testing.html';">Зарегистрироваться </button>
+			
+			</form>
 			<div id="makeDark">
 				<div class="popup-holder authorization-popup-holder">
 					<a href="#" class="close">×</a>

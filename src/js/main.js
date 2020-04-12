@@ -28,37 +28,37 @@ function show_hide_password(event) {
     return false;
 }
 
-var sec = 00;
-var min = 30;
+// var sec = 00;
+// var min = 30;
 
-function refresh() {
-    sec--;
-    if (sec == -01) {
-        sec = 59;
-        min = min - 1;
-    } else {
-        // todo: кажется эта строчка не нужна
-        min = min;
-    }
-    if (sec <= 9) {
-        sec = "0" + sec;
-    }
-    time = (min <= 9 ? "0" + min : min) + ":" + sec;
-    // todo: getElementById это DOM API, эта функция всегда есть, если ты работаешь в браузере
-    if (document.getElementById) {
-        //todo: а откуда timer берется? не нашел
-        timer.innerHTML = time;
-    }
-    // todo: setTimeout(refresh, 1000);
-    inter = setTimeout("refresh()", 1000);
-    if (min == '00' && sec == '00') {
-        // todo: секунды у тебя уже '00', раз прошло условие
-        // и лучше проверку делать до запуска очередного setTimeout
-        sec = "00";
-        clearInterval(inter);
-        alert('Таймер завершил свою работу!');
-    }
-}
+// function refresh() {
+//     sec--;
+//     if (sec == -01) {
+//         sec = 59;
+//         min = min - 1;
+//     } else {
+//         // todo: кажется эта строчка не нужна
+//         min = min;
+//     }
+//     if (sec <= 9) {
+//         sec = "0" + sec;
+//     }
+//     time = (min <= 9 ? "0" + min : min) + ":" + sec;
+//     // todo: getElementById это DOM API, эта функция всегда есть, если ты работаешь в браузере
+//     if (document.getElementById) {
+//         //todo: а откуда timer берется? не нашел
+//         timer.innerHTML = time;
+//     }
+//     // todo: setTimeout(refresh, 1000);
+//     inter = setTimeout("refresh()", 1000);
+//     if (min == '00' && sec == '00') {
+//         // todo: секунды у тебя уже '00', раз прошло условие
+//         // и лучше проверку делать до запуска очередного setTimeout
+//         sec = "00";
+//         clearInterval(inter);
+//         alert('Таймер завершил свою работу!');
+//     }
+// }
 
 const consentData = document.querySelector('.check-consent');
 if (consentData)
@@ -73,9 +73,53 @@ function check() {
         submit.disabled = 'disabled';
 }
 
-function getBaseUrl() {
-    let base_url = window.location.href;
-    console.log(base_url);
+
+
+
+import {
+    AuthClient,
+} from "@gtoru/js-client";
+
+const regNewUser = document.querySelector('.reg_button');
+if (regNewUser) {
+    regNewUser.addEventListener('click', regUserAsync);
 }
+
+async function regUserAsync(e) {
+    e.preventDefault();
+
+    let baseUrl = "http://localhost";
+    let client = new AuthClient(baseUrl);
+
+    let personalInfo = {
+        name: document.getElementById('name').value,
+        birthday: new Date(document.getElementById('birthYear').value),
+        address: document.getElementById('city').value,
+        occupation: document.getElementById('field').value,
+        employer: document.getElementById('organizationName').value
+    };
+
+    let user = {
+        email: document.getElementById('mail').value,
+        password: document.getElementById('password-input').value,
+        personalInfo: personalInfo
+    };
+    console.log(user);
+    alert(user);
+    await client.registerAsync(user);
+}
+
+
+
+// let elem = document.getElementById('registration');
+// elem.addEventListener('event', callback);
+
+// let response = await fetch(baseUrl, {
+//     method: 'POST',
+//     body: client
+// });
+// let result = await response.json();
+
+// alert(result.message);
 
 console.log("FUCK");
