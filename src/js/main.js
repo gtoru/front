@@ -88,7 +88,7 @@ if (regNewUser) {
 async function regUserAsync(e) {
     e.preventDefault();
 
-    let baseUrl = "http://localhost";
+    let baseUrl = "http://localhost:8080";
     let client = new AuthClient(baseUrl);
 
     let personalInfo = {
@@ -104,9 +104,9 @@ async function regUserAsync(e) {
         password: document.getElementById('password-input').value,
         personalInfo: personalInfo
     };
-    console.log(user);
-    alert(user);
     await client.registerAsync(user);
+    alert("Пользователь успешно зарегестрирован");
+    document.location.href = "testing.html";
 }
 
 const authUser = document.querySelector('.popup-button');
@@ -116,17 +116,18 @@ if (authUser) {
 
 async function authUserAsync(e) {
     e.preventDefault();
-    let baseUrl = "http://Localhost:8080";
+    let baseUrl = "http://localhost:8080";
     let client = new AuthClient(baseUrl);
     let email = document.getElementById('login-email').value;
     let pass = document.getElementById('password-input').value;
-    console.log(email);
-    console.log(pass);
     
     const response = await client.authenticateAsync(email, pass);
-    // debugger;
-    console.log(response.responseCode());
-    document.location.href = "testing.html";
+    if (response.responseCode >= 403) {
+        alert("Что-то пошло не так. Повторите попытку.");
+    }
+    else {
+        document.location.href = "testing.html";
+    }
 }
 
 
