@@ -109,17 +109,25 @@ async function regUserAsync(e) {
     await client.registerAsync(user);
 }
 
+const authUser = document.querySelector('.popup-button');
+if (authUser) {
+    authUser.addEventListener('click', authUserAsync);
+}
 
+async function authUserAsync(e) {
+    e.preventDefault();
+    let baseUrl = "http://Localhost:8080";
+    let client = new AuthClient(baseUrl);
+    let email = document.getElementById('login-email').value;
+    let pass = document.getElementById('password-input').value;
+    console.log(email);
+    console.log(pass);
+    
+    const response = await client.authenticateAsync(email, pass);
+    // debugger;
+    console.log(response.responseCode());
+    document.location.href = "testing.html";
+}
 
-// let elem = document.getElementById('registration');
-// elem.addEventListener('event', callback);
-
-// let response = await fetch(baseUrl, {
-//     method: 'POST',
-//     body: client
-// });
-// let result = await response.json();
-
-// alert(result.message);
 
 console.log("FUCK");

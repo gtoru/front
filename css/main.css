@@ -162,6 +162,7 @@ p {
 }
 
 .popup-button{
+	cursor: pointer;
 	width: 254px;
 	height: 50px;
 	margin-top: 26px;
