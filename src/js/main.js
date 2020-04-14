@@ -88,7 +88,7 @@ if (regNewUser) {
 async function regUserAsync(e) {
     e.preventDefault();
 
-    let baseUrl = "http://localhost:8080";
+    let baseUrl = "http://localhost";
     let client = new AuthClient(baseUrl);
 
     let personalInfo = {
@@ -104,31 +104,22 @@ async function regUserAsync(e) {
         password: document.getElementById('password-input').value,
         personalInfo: personalInfo
     };
+    console.log(user);
+    alert(user);
     await client.registerAsync(user);
-    alert("Пользователь успешно зарегестрирован");
-    document.location.href = "testing.html";
 }
 
-const authUser = document.querySelector('.popup-button');
-if (authUser) {
-    authUser.addEventListener('click', authUserAsync);
-}
 
-async function authUserAsync(e) {
-    e.preventDefault();
-    let baseUrl = "http://localhost:8080";
-    let client = new AuthClient(baseUrl);
-    let email = document.getElementById('login-email').value;
-    let pass = document.getElementById('password-input').value;
-    
-    const response = await client.authenticateAsync(email, pass);
-    if (response.responseCode >= 403) {
-        alert("Что-то пошло не так. Повторите попытку.");
-    }
-    else {
-        document.location.href = "testing.html";
-    }
-}
 
+// let elem = document.getElementById('registration');
+// elem.addEventListener('event', callback);
+
+// let response = await fetch(baseUrl, {
+//     method: 'POST',
+//     body: client
+// });
+// let result = await response.json();
+
+// alert(result.message);
 
 console.log("FUCK");

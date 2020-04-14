@@ -58,3 +58,6 @@
     
     console.log("Hi666");
 })();
+function entering_click(){
+    document.getElementById("enteringBtnId").innerHTML="<img src=\"images/pepe.png\" style=\"max-width: 1em;\"</img>";
+};

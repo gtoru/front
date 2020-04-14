@@ -162,7 +162,6 @@ p {
 }
 
 .popup-button{
-	cursor: pointer;
 	width: 254px;
 	height: 50px;
 	margin-top: 26px;
@@ -266,7 +265,6 @@ hr {
 	background:#fff url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 } */
 
-.reg-auth_button,
 .reg_button {
 	color: #0194DA;
 	background: #fff;

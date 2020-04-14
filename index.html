@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!-- <link rel="stylesheet" href="css/jquery.fancybox.min.css"> -->
-    <link rel='stylesheet' type="text/css" href='style.css'>
+    <link rel='stylesheet' type="text/css" href='src/scss/base.css'>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 					<button class="btn btn-outline-primary">СКАЧАТЬ ПРИЛОЖЕНИЕ</button>
 				</li>
 				<li class="nav-item">
-					<a href="#makeDark"><button class="btn btn-outline-primary">ВОЙТИ</button></a>
+					<a href="#makeDark"><button class="btn btn-outline-primary" id="enteringBtnId">ВОЙТИ</button></a>
 				</li>
 			</ul>
 		</div>
@@ -95,7 +95,7 @@
 							<p class="popup-contacts">ЭЛЕКТРОННАЯ ПОЧТА</p>
 						</div>
 						<div>
-							<input id="login-email" class="popup-contacts-border" type="text" placeholder="введите ваш e-mail"
+							<input class="popup-contacts-border" type="text" placeholder="введите ваш e-mail"
 								name="login">
 						</div>
 						<div>
@@ -108,7 +108,7 @@
 							<div class="password-control"></div>
 						</div>
 						<div>
-							<button class="popup-button">ВОЙТИ</button>
+							<button class="popup-button" onclick="entering_click();">ВОЙТИ</button>
 						</div>
 						<div>
 							<a href="registration.html" class="authorization-ref">Ещё не зарегистирированы?</a>
@@ -116,7 +116,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="#makeDark"><button class=" reg-auth_button">Авторизация</button></a>
+			<a href="#makeDark"><button class=" reg_button">Авторизация</button></a>
 		</div>
 		<hr>
 	</div>
@@ -158,6 +158,7 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
 	<!-- <script type="text/javascript" src="bundle.js"></script> -->
+	<script src="js/main.js"></script>
 	
 </body>
 </html>
