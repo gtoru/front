@@ -74,11 +74,11 @@ function check() {
 }
 
 
-
-
 import {
     AuthClient,
 } from "@gtoru/js-client";
+// let baseUrl = "http://localhost:8080";
+let baseUrl = "http://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -88,7 +88,6 @@ if (regNewUser) {
 async function regUserAsync(e) {
     e.preventDefault();
 
-    let baseUrl = "http://localhost:8080";
     let client = new AuthClient(baseUrl);
 
     let personalInfo = {
@@ -116,19 +115,23 @@ if (authUser) {
 
 async function authUserAsync(e) {
     e.preventDefault();
-    let baseUrl = "http://localhost:8080";
     let client = new AuthClient(baseUrl);
     let email = document.getElementById('login-email').value;
     let pass = document.getElementById('password-input').value;
     
     const response = await client.authenticateAsync(email, pass);
+    
     if (response.responseCode >= 403) {
         alert("Что-то пошло не так. Повторите попытку.");
     }
     else {
+        authUser.addEventListener('click', entering_click);
         document.location.href = "testing.html";
     }
 }
 
+function entering_click() {
+    document.getElementById("enteringBtnId").innerHTML = "<img src=\"images/pepe.png\" style=\"max-width: 1em;\"</img>";
+};
 
 console.log("FUCK");

@@ -281,13 +281,15 @@ hr {
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.reg_button:hover {
+.reg_button:hover,
+.reg-auth_button:hover {
 	background-color: #0194DA;
 	color: #fff;
 	border: none;
 }
 
-.reg_button:active {
+.reg_button:active,
+.reg-auth_button:active {
   transform: translateY(4px);
 }
 
