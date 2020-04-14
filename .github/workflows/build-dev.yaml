@@ -14,11 +14,17 @@ jobs:
       - name: Docker Login
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u gtoru --password-stdin
       - name: Build Historical Image
-        run: docker build -t docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER --target deploy .
+        run: docker build \
+          -t docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER \
+          --target deploy \
+          --build-arg npm_token=${{ secrets.GITHUB_TOKEN }} .
       - name: Publish Historical Image
         run: docker push docker.pkg.github.com/gtoru/front/front:$GITHUB_RUN_NUMBER
       - name: Build Latest Image
-        run: docker build -t docker.pkg.github.com/gtoru/front/front --target deploy .
+        run: docker build \
+          -t docker.pkg.github.com/gtoru/front/front \
+          --target deploy \
+          --build-arg npm_token=${{ secrets.GITHUB_TOKEN }} .
       - name: Publish Latest Image
         run: docker push docker.pkg.github.com/gtoru/front/front
 
