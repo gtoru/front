@@ -17,7 +17,8 @@ RUN npm run build
 
 FROM nginx:1.17.8-alpine as deploy
 
-COPY --from=build /app/build /usr/share/nginx/html
+COPY config/default.conf /etc/nginx/conf.d
+COPY --from=build /app/build /etc/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
