@@ -65,7 +65,9 @@ import {
 } from "@gtoru/js-client";
 let baseUrl = "http://localhost:8080";
 // let baseUrl = "https://" + window.location.host;
+
 let flag = false;
+sessionStorage.setItem("flag", "");
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -114,17 +116,20 @@ async function authUserAsync(e) {
         alert("Что-то пошло не так. Повторите попытку.");
     }
     else {
-        flag = true;
+        sessionStorage.setItem("flag", "1");
+        sessionStorage.setItem("login", document.getElementById('login-email').value);
+        alert("Пользователь успешно авторизован");
+        alert(!!sessionStorage.getItem("login"));
         document.location.href = "testing.html";
-        enteringClick();
+        // enteringClick();
     }
-    
 }
-function enteringClick() {
-    if (flag) {
-        document.getElementById("enteringBtnId").innerHTML = email;
-    }
-};
 
+// function enteringClick() {
+    if (!!sessionStorage.getItem("flag")) {
+        alert("666");
+        document.getElementById("enteringBtnId").innerHTML = sessionStorage.getItem("login");
+    }
+// };
 
 console.log("FUCK");
