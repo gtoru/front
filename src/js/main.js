@@ -78,7 +78,7 @@ import {
     AuthClient,
 } from "@gtoru/js-client";
 // let baseUrl = "http://localhost:8080";
-let baseUrl = "http://" + window.location.host;
+let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
