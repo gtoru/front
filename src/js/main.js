@@ -1,6 +1,4 @@
-// $(document).ready(function(){
-//  $('.header').height($(window).height());
-// })
+
 var menuButton = document.querySelector('.menu-button');
 var menu = document.querySelector('.header');
 menuButton.addEventListener('click', function () {
@@ -10,13 +8,13 @@ menuButton.addEventListener('click', function () {
 
 // todo: Проще всего добавлять эвенты прям на элемент DOM
  const passwordControl = document.querySelector('.password-control');
- if (passwordControl)
+ if (passwordControl) {
     passwordControl.addEventListener('click', show_hide_password);
+ }
 
 // todo: правильнее назвать togglePasswordDisplay
 // в js'e обычно не называют через '_'
 function show_hide_password(event) {
-    //console.log(target)
     var input = document.getElementById('password-input');
     if (input.getAttribute('type') == 'password') {
         event.target.classList.add('view');
@@ -28,37 +26,25 @@ function show_hide_password(event) {
     return false;
 }
 
-// var sec = 00;
-// var min = 30;
+var sec = 0;
+var min = 30;
 
-// function refresh() {
-//     sec--;
-//     if (sec == -01) {
-//         sec = 59;
-//         min = min - 1;
-//     } else {
-//         // todo: кажется эта строчка не нужна
-//         min = min;
-//     }
-//     if (sec <= 9) {
-//         sec = "0" + sec;
-//     }
-//     time = (min <= 9 ? "0" + min : min) + ":" + sec;
-//     // todo: getElementById это DOM API, эта функция всегда есть, если ты работаешь в браузере
-//     if (document.getElementById) {
-//         //todo: а откуда timer берется? не нашел
-//         timer.innerHTML = time;
-//     }
-//     // todo: setTimeout(refresh, 1000);
-//     inter = setTimeout("refresh()", 1000);
-//     if (min == '00' && sec == '00') {
-//         // todo: секунды у тебя уже '00', раз прошло условие
-//         // и лучше проверку делать до запуска очередного setTimeout
-//         sec = "00";
-//         clearInterval(inter);
-//         alert('Таймер завершил свою работу!');
-//     }
-// }
+function refresh() {
+    sec--;
+    if (sec == -1) {
+        sec = 59;
+        min = min - 1;
+    }
+    if (sec <= 9) {
+        sec = "0" + sec;
+    }
+    time = (min <= 9 ? "0" + min : min) + ":" + sec;
+    inter = setTimeout("refresh()", 1000);
+    if (min == '00' && sec == '00') {
+        clearInterval(inter);
+        alert('Таймер завершил свою работу!');
+    }
+}
 
 const consentData = document.querySelector('.check-consent');
 if (consentData)
@@ -77,8 +63,9 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
+let flag = false;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -113,25 +100,31 @@ if (authUser) {
     authUser.addEventListener('click', authUserAsync);
 }
 
+let email;
+
 async function authUserAsync(e) {
     e.preventDefault();
     let client = new AuthClient(baseUrl);
-    let email = document.getElementById('login-email').value;
+    email = document.getElementById('login-email').value;
     let pass = document.getElementById('password-input').value;
     
     const response = await client.authenticateAsync(email, pass);
     
-    if (response.responseCode >= 403) {
+    if (response.responseCode >= 400) {
         alert("Что-то пошло не так. Повторите попытку.");
     }
     else {
-        authUser.addEventListener('click', entering_click);
+        flag = true;
         document.location.href = "testing.html";
+        enteringClick();
     }
+    
 }
-
-function entering_click() {
-    document.getElementById("enteringBtnId").innerHTML = "<img src=\"images/pepe.png\" style=\"max-width: 1em;\"</img>";
+function enteringClick() {
+    if (flag) {
+        document.getElementById("enteringBtnId").innerHTML = email;
+    }
 };
+
 
 console.log("FUCK");
