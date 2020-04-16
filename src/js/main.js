@@ -6,14 +6,11 @@ menuButton.addEventListener('click', function () {
     menu.classList.toggle('header-active');
 })
 
-// todo: Проще всего добавлять эвенты прям на элемент DOM
  const passwordControl = document.querySelector('.password-control');
  if (passwordControl) {
     passwordControl.addEventListener('click', show_hide_password);
  }
 
-// todo: правильнее назвать togglePasswordDisplay
-// в js'e обычно не называют через '_'
 function show_hide_password(event) {
     var input = document.getElementById('password-input');
     if (input.getAttribute('type') == 'password') {
@@ -63,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -93,6 +90,7 @@ async function regUserAsync(e) {
     alert("Пользователь успешно зарегестрирован");
     localStorage.setItem("flag", "1");
     localStorage.setItem("login", document.getElementById('mail').value);
+    localStorage.setItem("auth-hide","1");
     document.location.href = "testing.html";
 }
 
@@ -118,6 +116,7 @@ async function authUserAsync(e) {
         localStorage.setItem("flag", "1");
         localStorage.setItem("login", document.getElementById('login-email').value);
         alert("Пользователь успешно авторизован");
+        localStorage.setItem("auth-hide", "1");
         document.location.href = "testing.html";
     }
 }
@@ -125,6 +124,9 @@ async function authUserAsync(e) {
 // function enteringClick() {
     if (!!localStorage.getItem("flag")) {
         document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
+    }
+    if (!!localStorage.getItem("auth-hide")) {
+        document.getElementById("authentication").style.visibility = "hidden";
     }
 // };
 
@@ -136,8 +138,11 @@ if (outUser) {
 function outAuthUser() {
     if (!!localStorage.getItem("flag")) {
         localStorage.clear();
+        document.getElementById("authentication").style.visibility = "visible";
         document.location.href = "index.html";
     }
 }
+
+
 
 console.log("FUCK");
