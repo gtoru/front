@@ -63,11 +63,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-let baseUrl = "http://localhost:8080";
-// let baseUrl = "https://" + window.location.host;
-
-let flag = false;
-sessionStorage.setItem("flag", "");
+// let baseUrl = "http://localhost:8080";
+let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -94,6 +91,8 @@ async function regUserAsync(e) {
     };
     await client.registerAsync(user);
     alert("Пользователь успешно зарегестрирован");
+    localStorage.setItem("flag", "1");
+    localStorage.setItem("login", document.getElementById('mail').value);
     document.location.href = "testing.html";
 }
 
@@ -116,20 +115,29 @@ async function authUserAsync(e) {
         alert("Что-то пошло не так. Повторите попытку.");
     }
     else {
-        sessionStorage.setItem("flag", "1");
-        sessionStorage.setItem("login", document.getElementById('login-email').value);
+        localStorage.setItem("flag", "1");
+        localStorage.setItem("login", document.getElementById('login-email').value);
         alert("Пользователь успешно авторизован");
-        alert(!!sessionStorage.getItem("login"));
         document.location.href = "testing.html";
-        // enteringClick();
     }
 }
 
 // function enteringClick() {
-    if (!!sessionStorage.getItem("flag")) {
-        alert("666");
-        document.getElementById("enteringBtnId").innerHTML = sessionStorage.getItem("login");
+    if (!!localStorage.getItem("flag")) {
+        document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
     }
 // };
+
+const outUser = document.querySelector('.getOut');
+if (outUser) {
+    outUser.addEventListener('click', outAuthUser);
+}
+
+function outAuthUser() {
+    if (!!localStorage.getItem("flag")) {
+        localStorage.clear();
+        document.location.href = "index.html";
+    }
+}
 
 console.log("FUCK");
