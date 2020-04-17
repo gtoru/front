@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -117,15 +117,24 @@ async function authUserAsync(e) {
         localStorage.setItem("login", document.getElementById('login-email').value);
         alert("Пользователь успешно авторизован");
         localStorage.setItem("auth-hide", "1");
-        document.location.href = "testing.html";
+        if (email == "admin") {
+            document.location.href = "admin.html";
+        }
+        else {
+            document.location.href = "/testing.html";
+        }
     }
 }
+
 
 // function enteringClick() {
     if (!!localStorage.getItem("flag")) {
         document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
     }
-    if (!!localStorage.getItem("auth-hide")) {
+    let path1 = "http://" + document.location.host + "/index.html";
+    let path2 = "https://" + document.location.host + "/index.html";
+    if (!!localStorage.getItem("auth-hide") &&
+            (document.location.href == path1 || document.location.href == path2)) {
         document.getElementById("authentication").style.visibility = "hidden";
     }
 // };
@@ -137,9 +146,9 @@ if (outUser) {
 
 function outAuthUser() {
     if (!!localStorage.getItem("flag")) {
+        document.location.href = "index.html";
         localStorage.clear();
         document.getElementById("authentication").style.visibility = "visible";
-        document.location.href = "index.html";
     }
 }
 

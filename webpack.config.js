@@ -69,8 +69,7 @@ module.exports = {
         },
         ]
     },
-    // todo: если всё же хочешь писать onclick в html, то отключи минимизацию бандла
-    // иначе все именованые функции превратятся в анонимные или в лучше случае названы одной буквой
+
     optimization: {
         moduleIds: 'hashed',
         splitChunks: {
@@ -86,10 +85,6 @@ module.exports = {
         runtimeChunk: 'single',
     },
 
-    // todo: кажется нашел неплохую статью для нескольких html файлов в одном проекте
-    // https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/
-    // чтобы подключить используй html-webpack-plugin
-    // З.Ы. осторожней с вебпаком на раннем этапе, можно до суицида дойти
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -140,6 +135,12 @@ module.exports = {
             inject: true,
             chunks: ['app'],
             filename: 'test_page.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './admin.html',
+            inject: true,
+            chunks: ['app'],
+            filename: 'admin.html'
         }),
     ]
 };
