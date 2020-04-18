@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -137,12 +137,12 @@ async function authUserAsync(e) {
             (document.location.href == path1 || document.location.href == path2)) {
         document.getElementById("authentication").style.visibility = "hidden";
     }
-    if (!!localStorage.getItem("flagAdmin")) {
-        document.getElementById("test-examples").style.visibility = "hidden";
-        document.getElementById("goto-test").style.visibility = "hidden";
-        document.getElementById("get-information").style.visibility = "hidden";
-        document.getElementById("download-app").style.visibility = "hidden";
-    }
+    // if (!!localStorage.getItem("flagAdmin")) {
+    //     document.getElementById("test-examples").style.visibility = "hidden";
+    //     document.getElementById("goto-test").style.visibility = "hidden";
+    //     document.getElementById("get-information").style.visibility = "hidden";
+    //     document.getElementById("download-app").style.visibility = "hidden";
+    // }
 // };
 
 const outUser = document.querySelector('.getOut');

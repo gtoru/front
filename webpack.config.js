@@ -142,5 +142,17 @@ module.exports = {
             chunks: ['app'],
             filename: 'admin.html'
         }),
+        new HtmlWebpackPlugin({
+            template: './addTask.html',
+            inject: true,
+            chunks: ['app'],
+            filename: 'addTask.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './addQuiz.html',
+            inject: true,
+            chunks: ['app'],
+            filename: 'addQuiz.html'
+        }),
     ]
 };

@@ -221,6 +221,10 @@ hr {
 	color: #0165B3;
 }
 
+#makeDark {
+	z-index:9999;
+}
+
 .name_border,
 .field_border,
 .mail_border,
@@ -458,6 +462,7 @@ img {
 	margin: 0 auto;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	background: #fff;
 }
 
 .info_image{
@@ -809,7 +814,120 @@ img {
 	height: 35px;
 }
 
+.quiz-container {
+	padding: 15px;
+}
 
+.newQuiz {
+	color: #0165B3;
+}
+
+.new-quiz-title {
+	width: 829px;
+	height: 40px;
+	background: #FFFFFF;
+	border: 1px solid #0165B3;
+	border-radius: 10px;
+	padding: 5px;
+	outline: none;
+}
+
+.main-add-title {
+	padding: 30px 0 40px 0;
+}
+
+.add-title {
+	color: #0165B3;
+	font-size: 24px;
+	line-height: 28px;
+	width: 669px;
+	height: 53px;
+	border: 1px solid #0165B3;
+	box-shadow: 5px 5px 5px rgba(1, 148, 219, 0.5);
+	border-radius: 100px;
+	background: #fff;
+	text-align: center;
+	margin: 0 auto;
+	font-weight: normal;
+	padding-top: 10px;
+}
+
+.input-task-text {
+	padding: 10px;
+	border: 1px solid #0165B3;
+	border-radius: 15px;
+	background-color: #D4E8FF;
+	width: 100%;
+	min-height: 50px;
+	outline: none;
+}
+
+.select-title {
+	margin: 30px 0;
+	color: #0165B3;
+	font-size: 24px;
+	text-align: center;
+}
+
+.double-select {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.four-options-title {
+	color: #0165B3;
+}
+
+._answer,
+.one-answer {
+	background: #D4E8FF;
+	border: 1px solid #0293DC;
+	border-radius: 10px;
+	width: 350px;
+	height: 30px;
+	outline: none;
+	padding: 5px;
+}
+
+._answer {
+	margin-bottom: 20px;
+}
+
+.no-option-title {
+	color: #0165B3;
+}
+
+.btn-add {
+	width: 1140px;
+	text-align: center;
+	padding: 40px 0;
+}
+
+
+.add-task-button,
+.add-quiz-button {
+	color: #0194DA;
+	background: #fff;
+	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
+	border-radius: 100px;
+	width: 560px;
+	height: 45px;
+	font-size: 18px;
+	border: solid #0194DA;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.add-task-button:hover,
+.add-quiz-button:hover {
+	background-color: #0194DA;
+	color: #fff;
+	border: none;
+}
+
+.add-task-button:active,
+.add-quiz-button:active {
+	transform: translateY(4px);
+}
 
 
 @media (max-width: 1170px)
