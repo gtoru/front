@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -119,7 +119,7 @@ async function authUserAsync(e) {
         localStorage.setItem("auth-hide", "1");
         if (email == "admin") {
             localStorage.setItem("flagAdmin", "1");
-            document.location.href = "admin.html";
+            document.location.href = "/admin.html";
         }
         else {
             document.location.href = "/testing.html";
