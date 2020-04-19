@@ -24,7 +24,7 @@ if (one.checked) {
     ans = document.getElementById('answer4').value;
 }
 
-alert(ans);
+// alert(ans);
 
 let task = {
     answer: ans,
