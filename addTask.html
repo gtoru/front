@@ -45,45 +45,70 @@
                 <div class="main-add-title">
                     <h1 class="add-title">Добавление нового задания</h1>
                 </div>
-                <textarea type="text" class="input-task-text" id="getTaskText"
-                    placeholder="Введите текст задания..."></textarea>
+                <form action="" class="addTask">
+                <input type="text" class="input-task-text" id="getTaskText"
+                    placeholder="Введите текст задания...">
                 <div class="select-title">
-                    <p>Выберите один из двух форматов задания и заполните необходимые поля</p>
+                    <p>Выберите один из трех форматов задания и заполните необходимые поля</p>
                 </div>
-                <div class="double-select">
+                <div class="triple-select">
                     <div class="four-options">
                         <p class="four-options-title">
+                            <input name="choose" type="radio" id="choose-first">
                             Введите варианы ответа и отметьте правильный
                         </p>
                         <div class="first-answer">
-                            <input name="task" type="radio">
-                            <input type="text" class="_answer">
+                            <input name="task" type="radio" id="checkAnswer1">
+                            <input type="text" class="_answer" id="answer1">
                         </div>
                         <div class="second-answer">
-                            <input name="task" type="radio">
-                            <input type="text" class="_answer">
+                            <input name="task" type="radio" id="checkAnswer2">
+                            <input type="text" class="_answer" id="answer2">
                         </div>
                         <div class="third-answer">
-                            <input name="task" type="radio">
-                            <input type="text" class="_answer">
+                            <input name="task" type="radio" id="checkAnswer3">
+                            <input type="text" class="_answer" id="answer3">
                         </div>
                         <div class="fourth-answer">
-                            <input name="task" type="radio">
-                            <input type="text" class="_answer">
+                            <input name="task" type="radio" id="checkAnswer4">
+                            <input type="text" class="_answer" id="answer4">
                         </div>
                     </div>
                     <div class="no-select">
-                        <p class="no-option-title">
-                            Введите правильный вариант ответа
-                        </p>
-                        <input type="text" class="one-answer">
+                        <div class="no-select-one">
+                            <p class="no-option-title">
+                                <input name="choose"  type="radio" id="choose-second">
+                                Введите правильный вариант ответа
+                            </p>
+                            <input type="text" class="one-answer" id="single-answer">
+                        </div>
+                        <div class="no-celect-four">
+                            <p class="no-option-title">
+                                <input name="choose" type="radio" id="choose-third">
+                                Введите 4 правильных варианта ответа
+                            </p>
+                            <input type="text" class="four-answers"><br>
+                            <input type="text" class="four-answers"><br>
+                            <input type="text" class="four-answers"><br>
+                            <input type="text" class="four-answers"><br>
+                        </div>
                     </div>
                 </div>
+                <div class="task-weight">
+                    <p class="task-weight-title">Введите вес задания <input type="text" class="input-weight"
+                            id="input-weight"></p>
+                </div>
+                </form>
+            </div>
+            <div class="button-final">
+                <div class="btn-add">
+                    <button class="add-task-button" id="add-task-button">Добавить задание и перейти к следующему</button>
+                </div>
+                <div class="btn-end">
+                    <button class="finish-task-button">Завершить</button>
+                </div>
+            </div>
 
-            </div>
-            <div class="btn-add">
-                <button class="add-task-button" id="add-task-button">Добавить задание и перейти к следующему</button>
-            </div>
         <hr>
     </div>
     <div class="contacts">

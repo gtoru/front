@@ -857,8 +857,9 @@ img {
 	border: 1px solid #0165B3;
 	border-radius: 15px;
 	background-color: #D4E8FF;
-	width: 100%;
+	width: 1140px;
 	min-height: 50px;
+	/* height: 250px; */
 	outline: none;
 }
 
@@ -869,17 +870,28 @@ img {
 	text-align: center;
 }
 
-.double-select {
+.triple-select {
 	display: flex;
 	justify-content: space-evenly;
 }
 
+.four-options,
+.no-select-one,
+.no-celect-four {
+	padding: 10px;
+	border: solid 1px #0165B3;
+}
 .four-options-title {
 	color: #0165B3;
 }
 
+.no-celect-four {
+	margin-top: 5px;
+}
+
 ._answer,
-.one-answer {
+.one-answer,
+.four-answers {
 	background: #D4E8FF;
 	border: 1px solid #0293DC;
 	border-radius: 10px;
@@ -887,6 +899,7 @@ img {
 	height: 30px;
 	outline: none;
 	padding: 5px;
+	margin-bottom: 4px;
 }
 
 ._answer {
@@ -897,15 +910,34 @@ img {
 	color: #0165B3;
 }
 
-.btn-add {
+.task-weight {
+	color: #0165B3;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.input-weight {
+	background: #D4E8FF;
+	border: 1px solid #0293DC;
+	border-radius: 10px;
+	height: 30px;
+	padding: 5px;
+	outline: none;
+}
+
+.button-final {
 	width: 1140px;
 	text-align: center;
 	padding: 40px 0;
 }
 
+.btn-end {
+	margin-top: 5px;
+}
 
 .add-task-button,
-.add-quiz-button {
+.add-quiz-button ,
+.finish-task-button {
 	color: #0194DA;
 	background: #fff;
 	box-shadow: 0px 5px 10px rgba(2, 147, 220, 0.6);
@@ -918,14 +950,16 @@ img {
 }
 
 .add-task-button:hover,
-.add-quiz-button:hover {
+.add-quiz-button:hover,
+.finish-task-button:hover {
 	background-color: #0194DA;
 	color: #fff;
 	border: none;
 }
 
 .add-task-button:active,
-.add-quiz-button:active {
+.add-quiz-button:active,
+.finish-task-button:active {
 	transform: translateY(4px);
 }
 

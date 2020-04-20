@@ -161,3 +161,93 @@ function outAuthUser() {
 
 
 console.log("FUCK");
+
+
+
+
+
+
+
+import {
+    TaskClient,
+    AuthToken
+} from "@gtoru/js-client";
+
+const addTask = document.querySelector('.add-task-button');
+if (addTask) {
+    addTask.addEventListener('click', addNewTask);
+}
+
+async function addNewTask() {
+
+    function getAnswer() {
+        let one = document.getElementById('checkAnswer1');
+        if (one.checked) {
+            return document.getElementById('answer1').value;
+        }
+        one = document.getElementById('checkAnswer2');
+        if (one.checked) {
+            return document.getElementById('answer2').value;
+        }
+        one = document.getElementById('checkAnswer3');
+        if (one.checked) {
+            return document.getElementById('answer3').value;
+        }
+        one = document.getElementById('checkAnswer4');
+        if (one.checked) {
+            return document.getElementById('answer4').value;
+        }
+    }
+
+    let task;
+    if (document.getElementById('choose-first').checked) {
+        task = {
+            answer: getAnswer(),
+            question: document.getElementById('getTaskText').value,
+            taskId: "",
+            variants: [
+                document.getElementById('answer1').value,
+                document.getElementById('answer2').value,
+                document.getElementById('answer3').value,
+                document.getElementById('answer4').value
+            ],
+            weight: +document.getElementById('input-weight').value
+        };
+    } else if (document.getElementById('choose-second').checked) {
+        task = {
+            answer: document.getElementById('single-answer').value,
+            question: document.getElementById('getTaskText').value,
+            taskId: "",
+            variants: [document.getElementById('single-answer').value],
+            weight: +document.getElementById('input-weight').value
+        }
+    } else if (document.getElementById('choose-third').checked) {
+        task = {
+            answer: document.querySelectorAll(".four-answers"),
+            question: document.getElementById('getTaskText').value,
+            taskId: "",
+            variants: document.querySelectorAll(".four-answers"),
+            weight: +document.getElementById('input-weight').value
+        }
+    }
+
+    let taskClient = new TaskClient(baseUrl);
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync("admin", "admin");
+    let token = authentication.responseData;
+    console.log(task);
+    let taskCreation = await taskClient.createTaskAsync(task, token);
+
+    if (taskCreation.responseCode == 200) {
+        alert("Задание успешно добавлено");
+    } else {
+        alert("Произошла ошибка. Повторите попытку еще раз");
+    }
+}
+
+const finishAdd = document.querySelector('.finish-task-button');
+if (finishAdd) {
+    finishAdd.addEventListener('click', function () {
+        document.location.href = "index.html";
+    });
+}
