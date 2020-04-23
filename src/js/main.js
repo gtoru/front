@@ -160,17 +160,14 @@ function outAuthUser() {
 
 
 
-console.log("FUCK");
+//console.log("FUCK");
 
 
-
-
-
-
+// task
 
 import {
     TaskClient,
-    AuthToken
+    TaskId
 } from "@gtoru/js-client";
 
 const addTask = document.querySelector('.add-task-button');
@@ -237,17 +234,82 @@ async function addNewTask() {
     let token = authentication.responseData;
     console.log(task);
     let taskCreation = await taskClient.createTaskAsync(task, token);
-
     if (taskCreation.responseCode == 200) {
         alert("Задание успешно добавлено");
     } else {
         alert("Произошла ошибка. Повторите попытку еще раз");
     }
+
+    if (localStorage.getItem("task") == null) {
+        let taskArray = [taskCreation.responseData];
+        localStorage.setItem("task", JSON.stringify(taskArray));
+    } else {
+        let taskArray = JSON.parse(localStorage.getItem("task"));
+        taskArray[taskArray.length] = taskCreation.responseData;
+    }
 }
 
-const finishAdd = document.querySelector('.finish-task-button');
-if (finishAdd) {
-    finishAdd.addEventListener('click', function () {
-        document.location.href = "index.html";
-    });
+
+
+
+// quiz
+
+import {
+    QuizClient
+} from "@gtoru/js-client";
+
+const startQuiz = document.querySelector('.try_test_button');
+if (startQuiz) {
+    startQuiz.addEventListener('click', quizing);
+}
+
+
+async function quizing() {
+
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync("admin", "admin");
+    let token = authentication.responseData;
+
+    let quizCl = new QuizClient(baseUrl);
+    let allQuizes = await quizCl.getAllQuizzesAsync(token);
+
+    console.log(allQuizes.responseData);
+    console.log(allQuizes.responseCode);
+
+
+    // document.location.href = "question.html";
+}
+
+const addQuiz = document.querySelector('.add-quiz-button');
+if (addQuiz) {
+    addQuiz.addEventListener('click', createQuizTitle);
+}
+
+async function createQuizTitle() {
+    localStorage.setItem("qTitle", document.getElementById('new-quiz-title').value);
+    document.location.href = "addTask.html";
+}
+
+const addQuizFinish = document.querySelector('.finish-task-button');
+if (addQuizFinish) {
+    addQuizFinish.addEventListener('click', createQuiz);
+}
+
+async function createQuiz() {
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync("admin", "admin");
+    let token = authentication.responseData;
+
+    let quizClient = new QuizClient(baseUrl);
+    const creatingQuiz = await quizClient.createQuizAsync(
+        localStorage.getItem("qTitle"),
+        JSON.parse(localStorage.getItem("task")),
+        token
+    );
+    if (creatingQuiz.responseCode == 200) {
+        alert("Тест добавлен!");
+    } else {
+        alert("Что-то пошло не так.");
+    }
+    document.location.href = "index.html";
 }

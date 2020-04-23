@@ -935,6 +935,11 @@ img {
 	margin-top: 5px;
 }
 
+.btn-add {
+	text-align: center;
+	margin-top: 15px;
+}
+
 .add-task-button,
 .add-quiz-button ,
 .finish-task-button {
