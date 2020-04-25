@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ГТО по русскому языку</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="src/js/main.js">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-sm">
         <a class="navbar-brand" href="index.html">
@@ -37,55 +39,31 @@
         </div>
         <div class="menu-button"></div>
     </nav>
-
-    <div class="question_container" style="background: url('images/bgrnd.png')">
+    <div class="finalPage-container" style="background: url('images/bgrnd.png')">
         <hr>
-        <div class="buttons_box">
-            <div class="rectangle">Задание 1</div>
-            <button class="btn btn-outline-primary" style="margin-left:50px;"
-                onclick="window.location.href ='test_page.html'">К списку заданий</button>
-            <div class="rectangle time">Времени осталось:</div>
-            <div class="rectangle">
-                <span id="timer"></span>
-                <div id="tut"></div>
-            </div>
+        <div class="congratulations">
+            <p class="congratulation-main">
+                Поздравляем! Вы звершили тест ГТО по русскому языку!
+            </p>
+            <p class="congratulation-conclusion">
+                Ознакомьтесь со своими результатами.
+            </p>
         </div>
-
-        <div class="d-flex justify-content-center" style="margin-top: 50px;">
-            <div id="question" class="bigbox">
-                <p class="formulation">Лучшая игра Obsidian</p>
-            </div>
+        <div class="results">
+            <p class="points">Количество набранных баллов: <span class="points-number">__</span></p>
+            <p class="certificate">Как вам удобнее будет получить сертификат?</p>
+            <input type="radio" name="certificate" id="sert-option1">
+            <span class="by-email">в электронном виде по почте</span><br>
+            <input type="radio" name="certificate" id="sert-option1">
+            <span class="personally">очно, в торжественной обстановке</span>
         </div>
-        <div class="answers">
-            <div class="d-flex" style="margin-top: 50px;">
-                <button id="answer1" class="btn btn-outline-answer">Вампир маскарад</button>
-                <div class="circle" style="margin-left: 10px;">1</div>
-                <div class="circle" style="margin-left: 120px;">2</div>
-                <button id="answer2" class="mr-auto p-2 btn btn-outline-answer d-block" style="margin-left: 10px;">
-                    Vampire: The Masquerade
-                </button>
-            </div>
-            <div class="d-flex" style="margin-top: 50px;">
-                <button id="answer3" class="btn btn-outline-answer">Вампир маскарад</button>
-                <div class="circle" style="margin-left: 10px;">3</div>
-                <div class="circle" style="margin-left: 120px;">4</div>
-                <button id="answer4" class="mr-auto p-2 btn btn-outline-answer d-block" style="margin-left: 10px;">
-                    Vampire: The Masquerade
-                </button>
-            </div>
-            <div class="answer-buttons">
-                <button class="goLeft">
-                    <img src="images/double-left-arrow.svg" width="50" height="50">
-                </button>
-                <button class="btn btn-outline-submit" >Ответить</button>
-                <button class="goRight">
-                    <img src="images/double-right-arrow.svg" width="50" height="50">
-                </button>
-            </div>
+        <div class="final-button">
+            <button class="get-sertificate">
+                Получить сертификат
+            </button>
         </div>
         <hr>
     </div>
-
     <div class="contacts">
         <div>
             <p class="organization">По организаторским вопросам:</p>
@@ -112,7 +90,4 @@
             <img src="images/filfac_logo.png">
         </li>
     </ul>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 </body>
-
-</html>

@@ -127,23 +127,15 @@ async function authUserAsync(e) {
     }
 }
 
-// function enteringClick() {
-    if (!!localStorage.getItem("flag")) {
-        document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
-    }
-    let path1 = "http://" + document.location.host + "/index.html";
-    let path2 = "https://" + document.location.host + "/index.html";
-    if (!!localStorage.getItem("auth-hide") &&
-            (document.location.href == path1 || document.location.href == path2)) {
-        document.getElementById("authentication").style.visibility = "hidden";
-    }
-    // if (!!localStorage.getItem("flagAdmin")) {
-    //     document.getElementById("test-examples").style.visibility = "hidden";
-    //     document.getElementById("goto-test").style.visibility = "hidden";
-    //     document.getElementById("get-information").style.visibility = "hidden";
-    //     document.getElementById("download-app").style.visibility = "hidden";
-    // }
-// };
+if (!!localStorage.getItem("flag")) {
+    document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
+}
+let path1 = "http://" + document.location.host + "/index.html";
+let path2 = "https://" + document.location.host + "/index.html";
+if (!!localStorage.getItem("auth-hide") &&
+        (document.location.href == path1 || document.location.href == path2)) {
+    document.getElementById("authentication").style.visibility = "hidden";
+}
 
 const outUser = document.querySelector('.getOut');
 if (outUser) {
@@ -246,6 +238,7 @@ async function addNewTask() {
     } else {
         let taskArray = JSON.parse(localStorage.getItem("task"));
         taskArray[taskArray.length] = taskCreation.responseData;
+        localStorage.setItem("task", JSON.stringify(taskArray));
     }
 }
 
@@ -277,7 +270,7 @@ async function quizing() {
     console.log(allQuizes.responseCode);
 
 
-    // document.location.href = "question.html";
+    document.location.href = "question.html";
 }
 
 const addQuiz = document.querySelector('.add-quiz-button');
@@ -308,8 +301,21 @@ async function createQuiz() {
     );
     if (creatingQuiz.responseCode == 200) {
         alert("Тест добавлен!");
+        document.location.href = "addTask.html";
     } else {
         alert("Что-то пошло не так.");
     }
     document.location.href = "index.html";
+}
+
+
+// answering
+
+const next = document.querySelectorAll(".btn-outline-answer, .btn-outline-submit, .goRight");
+next.forEach(element => {
+    element.addEventListener('click', answerQuestion);
+});
+
+async function answerQuestion() {
+    document.location.href = "result.html";
 }
