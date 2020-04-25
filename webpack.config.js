@@ -154,5 +154,11 @@ module.exports = {
             chunks: ['app'],
             filename: 'addQuiz.html'
         }),
+        new HtmlWebpackPlugin({
+            template: './result.html',
+            inject: true,
+            chunks: ['app'],
+            filename: 'result.html'
+        }),
     ]
 };
