@@ -161,5 +161,11 @@ module.exports = {
             chunks: ['app'],
             filename: 'result.html'
         }),
+        new HtmlWebpackPlugin({
+            template: './question_2var.html',
+            inject: true,
+            chunks: ['app'],
+            filename: 'question_2var.html'
+        }),
     ]
 };

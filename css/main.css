@@ -416,6 +416,7 @@ hr {
 	width: 818px;
 	display: block;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .goLeft, .goRight {
@@ -969,6 +970,17 @@ img {
 .add-quiz-button:active,
 .finish-task-button:active {
 	transform: translateY(4px);
+}
+
+.single-quest {
+	background: #D4E8FF;
+	border: 1px solid #0293DC;
+	border-radius: 10px;
+	width: 800px;
+	height: 30px;
+	outline: none;
+	padding: 5px;
+	margin-top: 50px;
 }
 
 .congratulations {

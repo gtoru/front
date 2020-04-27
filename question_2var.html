@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ГТО по русскому языку</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo.jpg" alt="Logo">
+        </a>
+        <div class="header">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" onclick="window.location.href = 'example.html';">ПРИМЕРЫ
+                        ТЕСТОВ</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" onclick="window.location.href = 'testing.html';">ПЕРЕЙТИ К
+                        ТЕСТИРОВАНИЮ</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary"
+                        onclick="window.location.href = 'information.html';">ИНФОРМАЦИЯ</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary">СКАЧАТЬ ПРИЛОЖЕНИЕ</button>
+                </li>
+                <li class="nav-item">
+                    <a href="#makeDark"><button class="btn btn-outline-primary getOut"
+                            id="enteringBtnId">ВОЙТИ</button></a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-button"></div>
+    </nav>
+
+    <div class="question_container" style="background: url('images/bgrnd.png')">
+        <hr>
+        <div class="buttons_box">
+            <div class="rectangle">Задание 1</div>
+            <button class="btn btn-outline-primary" style="margin-left:50px;"
+                onclick="window.location.href ='test_page.html'">К списку заданий</button>
+            <div class="rectangle time">Времени осталось:</div>
+            <div class="rectangle">
+                <span id="timer"></span>
+                <div id="tut"></div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center" style="margin-top: 50px;">
+            <div id="question" class="bigbox">
+                <p class="formulation" id="formulation">Вопрос</p>
+            </div>
+        </div>
+        <div class="answers">
+            <input type="text" class="single-quest">
+            <div class="answer-buttons">
+                <button class="goLeft">
+                    <img src="images/double-left-arrow.svg" width="50" height="50">
+                </button>
+                <button class="btn btn-outline-submit">Ответить</button>
+                <button class="goRight">
+                    <img src="images/double-right-arrow.svg" width="50" height="50">
+                </button>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="contacts">
+        <div>
+            <p class="organization">По организаторским вопросам:</p>
+        </div>
+        <div class="numbers">
+            <p class="number_1">+79034034111 Инна Викторовна Ковтуненко</p>
+            <p class="number_2">+79282964596 Евгений Евгеньевич Коржов</p>
+        </div>
+        <div>
+            <p class="e_mail">электронный адрес: <a href="mailto:gto-russia@yandex.ru">gto-russia@yandex.ru</a> </p>
+        </div>
+    </div>
+    <ul class="footer">
+        <li class="gto-logo">
+            <img src="images/gto-logo-footer.png" x>
+        </li>
+        <li class="sfedu-logo">
+            <img src="images/sfedu_logo.png">
+        </li>
+        <li class="smth-logo">
+            <img src="images/smth_logo.png">
+        </li>
+        <li class="filfac-logo">
+            <img src="images/filfac_logo.png">
+        </li>
+    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+</body>
+</html>
