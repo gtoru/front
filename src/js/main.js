@@ -130,10 +130,10 @@ async function authUserAsync(e) {
 if (!!localStorage.getItem("flag")) {
     document.getElementById("enteringBtnId").innerHTML = localStorage.getItem("login");
 }
-let path1 = "http://" + document.location.host + "/index.html";
-let path2 = "https://" + document.location.host + "/index.html";
+// let path1 = "http://" + document.location.host + "/index.html";
+// let path2 = "https://" + document.location.host + "/index.html";
 if (!!localStorage.getItem("auth-hide") &&
-        (document.location.href == path1 || document.location.href == path2)) {
+        (window.location.pathname == '/index.html')) {
     document.getElementById("authentication").style.visibility = "hidden";
 }
 
@@ -265,12 +265,32 @@ async function quizing() {
 
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
+    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[5].quizId,token);
 
-    console.log(allQuizes.responseData);
-    console.log(allQuizes.responseCode);
+    let tasks = quiz.responseData.tasks;
 
+    localStorage.setItem("question", JSON.stringify(tasks));
+    localStorage.setItem("question-number", 0);
 
     document.location.href = "question.html";
+}
+
+if (window.location.pathname == '/question.html') {
+    getTask();
+}
+
+function getTask() {
+    let taskAr = JSON.parse(localStorage.getItem("question"));
+    let ind = +localStorage.getItem("question-number");
+    if (ind == 0) {
+        document.getElementById('formulation').innerHTML = taskAr[ind].question;
+        document.getElementById('answer1').innerHTML = taskAr[ind].variants[0];
+        document.getElementById('answer2').innerHTML = taskAr[ind].variants[1];
+        document.getElementById('answer3').innerHTML = taskAr[ind].variants[2];
+        document.getElementById('answer4').innerHTML = taskAr[ind].variants[3];
+        ind += 1;
+        localStorage.setItem("question-number", ind);
+    }
 }
 
 const addQuiz = document.querySelector('.add-quiz-button');
@@ -311,11 +331,48 @@ async function createQuiz() {
 
 // answering
 
+
 const next = document.querySelectorAll(".btn-outline-answer, .btn-outline-submit, .goRight");
 next.forEach(element => {
     element.addEventListener('click', answerQuestion);
 });
 
 async function answerQuestion() {
-    document.location.href = "result.html";
+    let taskAr = JSON.parse(localStorage.getItem("question"));
+    let ind = +localStorage.getItem("question-number");
+    if (ind < 0) {
+        return;
+    }
+    if (ind == taskAr.length) {
+        document.location.href = "result.html";
+        return;
+    }
+    document.getElementById('formulation').innerHTML = taskAr[ind].question;
+    document.getElementById('answer1').innerHTML = taskAr[ind].variants[0];
+    document.getElementById('answer2').innerHTML = taskAr[ind].variants[1];
+    document.getElementById('answer3').innerHTML = taskAr[ind].variants[2];
+    document.getElementById('answer4').innerHTML = taskAr[ind].variants[3];
+    ind += 1;
+    localStorage.setItem("question-number", ind);
+}
+
+const prev = document.querySelector(".goLeft");
+if (prev) {
+    prev.addEventListener('click', goBack);
+}
+
+async function goBack() {
+    let taskAr = JSON.parse(localStorage.getItem("question"));
+    let ind = +localStorage.getItem("question-number");
+    if (ind == 0) {
+        return;
+    }
+    ind -= 2;
+    document.getElementById('formulation').innerHTML = taskAr[ind].question;
+    document.getElementById('answer1').innerHTML = taskAr[ind].variants[0];
+    document.getElementById('answer2').innerHTML = taskAr[ind].variants[1];
+    document.getElementById('answer3').innerHTML = taskAr[ind].variants[2];
+    document.getElementById('answer4').innerHTML = taskAr[ind].variants[3];
+    ind += 1;
+    localStorage.setItem("question-number", ind);
 }
