@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -264,7 +264,7 @@ async function quizing() {
 
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
-    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
+    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[0].quizId,token);
 
     let tasks = quiz.responseData.tasks;
 
@@ -312,11 +312,47 @@ async function createQuiz() {
 
 // answering
 
+import {
+    UserClient,
+    ClientBase
+} from "@gtoru/js-client";
 
-const next = document.querySelectorAll(".btn-outline-answer, .btn-outline-submit, .goRight");
-next.forEach(element => {
-    element.addEventListener('click', answerQuestion);
-});
+
+
+let next = document.querySelector(".goRight");
+if (next) {
+    next.addEventListener('click', answerQuestion);
+}
+
+// next.forEach(element => {
+//     element.addEventListener('click', answerQuestion);
+// });
+
+const answerQ = document.querySelector(".btn-outline-submit");
+if (answerQ) {
+    answerQ.addEventListener('click', () => {
+        if (location.pathname == "/question_2var.html") {
+            let yourAnswer = document.getElementById('single-quest').value;
+            if (!!yourAnswer) {
+                let createAns = {
+                    taskNumber: (+localStorage.getItem("question-number")) - 1,
+                    answer: yourAnswer
+                };
+                if (JSON.parse(localStorage.getItem("answerArray")) == null) {
+                    let arr = [createAns];
+                    localStorage.setItem("answerArray", JSON.stringify(arr));
+                } else {
+                    let arr = JSON.parse(localStorage.getItem("answerArray"));
+                    arr[arr.length] = createAns;
+                    localStorage.setItem("answerArray", JSON.stringify(arr));
+                }
+                answerQuestion();
+            }
+        }
+        answerQuestion();
+    })
+}
+
 
 async function answerQuestion() {
     let taskAr = JSON.parse(localStorage.getItem("question"));
@@ -325,6 +361,16 @@ async function answerQuestion() {
         return;
     }
     if (ind == taskAr.length) {
+
+        let auCl = new AuthClient(baseUrl);
+        const authentication = await auCl.authenticateAsync("admin", "admin");
+        let token = authentication.responseData;
+
+        let userid = (await auCl.getSessionInfoAsync(token)).responseData.userId;
+        let zzz = new UserClient(baseUrl);
+        
+
+
         document.location.href = "result.html";
         return;
     }
@@ -355,7 +401,7 @@ async function goBack() {
     }
 }
 
-if (window.location.pathname == "/question.html") {
+if (window.location.pathname == "/question.html") {   
     let taskAr = JSON.parse(localStorage.getItem("question"));
     let ind = +localStorage.getItem("question-number");
     document.getElementById('formulation').innerHTML = taskAr[ind].question;
@@ -365,6 +411,7 @@ if (window.location.pathname == "/question.html") {
     document.getElementById('answer4').innerHTML = taskAr[ind].variants[3];
     ind += 1;
     localStorage.setItem("question-number", ind);
+    //console.log(typeof(document.getElementById('answer1').innerHTML));
 }
 
 if (window.location.pathname == "/question_2var.html") {
@@ -373,4 +420,27 @@ if (window.location.pathname == "/question_2var.html") {
     document.getElementById('formulation').innerHTML = taskAr[ind].question;
     ind += 1;
     localStorage.setItem("question-number", ind);
+}
+
+// send an answer
+
+let ans_ = document.querySelectorAll(".btn-outline-answer");
+if (ans_.length != 0) {
+    ans_.forEach(element => {
+        element.addEventListener('click', () => {
+            let createAns = {
+                taskNumber: (+localStorage.getItem("question-number")) - 1,
+                answer: element.innerHTML
+            };
+            if (JSON.parse(localStorage.getItem("answerArray")) == null) {
+                let arr = [createAns];
+                localStorage.setItem("answerArray", JSON.stringify(arr));
+            } else {
+                let arr = JSON.parse(localStorage.getItem("answerArray"));
+                arr[arr.length] = createAns;
+                localStorage.setItem("answerArray", JSON.stringify(arr));
+            }
+            answerQuestion();
+        })
+    })
 }
