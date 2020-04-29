@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -264,7 +264,7 @@ async function quizing() {
 
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
-    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
+    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[5].quizId,token);
 
     let tasks = quiz.responseData.tasks;
 
