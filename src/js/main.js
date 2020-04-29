@@ -60,8 +60,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-let baseUrl = "http://localhost:8080";
-// let baseUrl = "https://" + window.location.host;
+// let baseUrl = "http://localhost:8080";
+let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -264,11 +264,7 @@ async function quizing() {
 
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
-<<<<<<< HEAD
-    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[0].quizId,token);
-=======
-    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[5].quizId,token);
->>>>>>> master
+    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
 
     let tasks = quiz.responseData.tasks;
 
@@ -371,9 +367,19 @@ async function answerQuestion() {
         let token = authentication.responseData;
 
         let userid = (await auCl.getSessionInfoAsync(token)).responseData.userId;
-        let zzz = new UserClient(baseUrl);
-        
+        let addAns = new UserClient(baseUrl);
+        let quizCl = new QuizClient(baseUrl);
+        let allQuizes = await quizCl.getAllQuizzesAsync(token);
+        let quizid = allQuizes.responseData[1].quizId;
 
+        await addAns.startNewSessionAsync(userid, quizid, token);
+        let addAnsResp = await addAns.addAnswerAsync(userid, JSON.parse(localStorage.getItem("answerArray")), token);
+        if (addAnsResp.responseCode == 200) {
+            alert("Результаты отправлены");
+        } else {
+            alert("К сожалению, что-то пошло не так");
+        }
+        await addAns.endSessionAsync(userid, token);
 
         document.location.href = "result.html";
         return;
@@ -415,7 +421,6 @@ if (window.location.pathname == "/question.html") {
     document.getElementById('answer4').innerHTML = taskAr[ind].variants[3];
     ind += 1;
     localStorage.setItem("question-number", ind);
-    //console.log(typeof(document.getElementById('answer1').innerHTML));
 }
 
 if (window.location.pathname == "/question_2var.html") {
