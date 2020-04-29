@@ -264,7 +264,11 @@ async function quizing() {
 
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
+<<<<<<< HEAD
     let quiz = await quizCl.getQuizAsync(allQuizes.responseData[0].quizId,token);
+=======
+    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[5].quizId,token);
+>>>>>>> master
 
     let tasks = quiz.responseData.tasks;
 
