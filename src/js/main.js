@@ -23,26 +23,6 @@ function show_hide_password(event) {
     return false;
 }
 
-var sec = 0;
-var min = 30;
-
-function refresh() {
-    sec--;
-    if (sec == -1) {
-        sec = 59;
-        min = min - 1;
-    }
-    if (sec <= 9) {
-        sec = "0" + sec;
-    }
-    time = (min <= 9 ? "0" + min : min) + ":" + sec;
-    inter = setTimeout("refresh()", 1000);
-    if (min == '00' && sec == '00') {
-        clearInterval(inter);
-        alert('Таймер завершил свою работу!');
-    }
-}
-
 const consentData = document.querySelector('.check-consent');
 if (consentData)
     consentData.addEventListener('click', check);
@@ -149,16 +129,11 @@ function outAuthUser() {
     }
 }
 
-
-
 //console.log("FUCK");
 
-
 // task
-
 import {
     TaskClient,
-    TaskId
 } from "@gtoru/js-client";
 
 const addTask = document.querySelector('.add-task-button');
@@ -411,9 +386,18 @@ async function goBack() {
     }
 }
 
+
 if (window.location.pathname == "/question.html") {   
+
+    if (localStorage.getItem("timer") == null) {
+        localStorage.setItem("timer", 1800);
+    } 
+    window.addEventListener('load', timer);
+    setInterval(timer, 1000);
+
     let taskAr = JSON.parse(localStorage.getItem("question"));
     let ind = +localStorage.getItem("question-number");
+    document.getElementById('task-number').innerHTML = ind+1;
     document.getElementById('formulation').innerHTML = taskAr[ind].question;
     document.getElementById('answer1').innerHTML = taskAr[ind].variants[0];
     document.getElementById('answer2').innerHTML = taskAr[ind].variants[1];
@@ -424,8 +408,17 @@ if (window.location.pathname == "/question.html") {
 }
 
 if (window.location.pathname == "/question_2var.html") {
+
+    if (localStorage.getItem("timer") == null) {
+        localStorage.setItem("timer", 1800);
+    }
+
+    window.addEventListener('load', timer);
+    setInterval(timer, 1000);
+
     let taskAr = JSON.parse(localStorage.getItem("question"));
     let ind = +localStorage.getItem("question-number");
+    document.getElementById('task-number2').innerHTML = ind + 1;
     document.getElementById('formulation').innerHTML = taskAr[ind].question;
     ind += 1;
     localStorage.setItem("question-number", ind);
@@ -453,3 +446,38 @@ if (ans_.length != 0) {
         })
     })
 }
+
+if (location.pathname == "/test_page.html") {
+    if (localStorage.getItem("timer") == null) {
+        localStorage.setItem("timer", 1800);
+    }
+    window.addEventListener('load', timer);
+    setInterval(timer, 1000);
+}
+
+async function timer() {
+    
+    let time = +localStorage.getItem("timer");
+    document.getElementById('timer').innerHTML = Math.floor(time / 60) + " : " + time % 60;
+    localStorage.setItem("timer", time-1);
+    if (time == 0) {
+        alert("К сожалению, время вышло.");
+        localStorage.setItem("question-number", JSON.parse(localStorage.getItem("question")).length);
+        answerQuestion();
+    }
+}
+
+let knopkaAr = document.querySelectorAll(".knopka");
+knopkaAr.forEach(element => {
+    let knopkaTaskN = element.innerHTML;
+    element.addEventListener('click', () => {
+        let tasks = JSON.parse(localStorage.getItem("question"));
+        localStorage.setItem("question-number", knopkaTaskN - 1);
+        if (tasks[knopkaTaskN-1].variants == 1) {
+            location.href = "/question_2var.html";
+        } else {
+            location.href = "/question.html";
+        }
+        answerQuestion();
+    })
+});
