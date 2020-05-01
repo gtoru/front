@@ -362,7 +362,7 @@ async function answerQuestion() {
         await addAns.endSessionAsync(userid, token);
 
         localStorage.setItem("startRealQuiz","");
-        // document.location.href = "result.html";
+        document.location.href = "result.html";
         return;
     }
     if (taskAr[ind].variants.length == 4) {
@@ -487,3 +487,15 @@ knopkaAr.forEach(element => {
         })
     }
 });
+
+if (location.pathname == "/chooseQuiz.html") {
+    async () => {
+        let quizCl = new QuizClient(baseUrl);
+        let allQuizes = await quizCl.getAllQuizzesAsync(token).responseData;
+        ol.insertAdjacentHTML('beforeend', '<p>Пока</p>');
+    }
+}
+let xxx = document.getElementById('availableQuizzez-list');
+if (xxx) {
+    xxx.insertAdjacentHTML('beforeend', '<p>Тут будут тесты</p>');
+}
