@@ -86,6 +86,9 @@ async function authUserAsync(e) {
     let client = new AuthClient(baseUrl);
     email = document.getElementById('login-email').value;
     let pass = document.getElementById('password-input').value;
+    if (email == "admin" && pass == "admin") {
+        localStorage.setItem("admin-only","1");
+    }
     
     const response = await client.authenticateAsync(email, pass);
     
@@ -105,6 +108,17 @@ async function authUserAsync(e) {
             document.location.href = "/testing.html";
         }
     }
+}
+
+if (!!localStorage.getItem("admin-only")) {
+    document.getElementById('admin-only').hidden = false;
+}
+
+let adminPage = document.getElementById('admin-only');
+if (adminPage && !document.getElementById('admin-only').hidden) {
+    adminPage.addEventListener('click', () => {
+        location.href = "admin.html";
+    })
 }
 
 if (!!localStorage.getItem("flag")) {
@@ -216,20 +230,17 @@ async function addNewTask() {
     }
 }
 
-
-
-
 // quiz
-
 import {
     QuizClient
 } from "@gtoru/js-client";
 
 const startQuiz = document.querySelector('.try_test_button');
 if (startQuiz) {
+    // чтобы отделить пробный квиз от настоящего (временное рещение)
+    localStorage.setItem("startRealQuiz","1");
     startQuiz.addEventListener('click', quizing);
 }
-
 
 async function quizing() {
 
@@ -292,16 +303,10 @@ import {
     ClientBase
 } from "@gtoru/js-client";
 
-
-
 let next = document.querySelector(".goRight");
 if (next) {
     next.addEventListener('click', answerQuestion);
 }
-
-// next.forEach(element => {
-//     element.addEventListener('click', answerQuestion);
-// });
 
 const answerQ = document.querySelector(".btn-outline-submit");
 if (answerQ) {
@@ -328,7 +333,6 @@ if (answerQ) {
     })
 }
 
-
 async function answerQuestion() {
     let taskAr = JSON.parse(localStorage.getItem("question"));
     let ind = +localStorage.getItem("question-number");
@@ -348,6 +352,7 @@ async function answerQuestion() {
         let quizid = allQuizes.responseData[1].quizId;
 
         await addAns.startNewSessionAsync(userid, quizid, token);
+        console.log(JSON.parse(localStorage.getItem("answerArray")));
         let addAnsResp = await addAns.addAnswerAsync(userid, JSON.parse(localStorage.getItem("answerArray")), token);
         if (addAnsResp.responseCode == 200) {
             alert("Результаты отправлены");
@@ -356,7 +361,8 @@ async function answerQuestion() {
         }
         await addAns.endSessionAsync(userid, token);
 
-        document.location.href = "result.html";
+        localStorage.setItem("startRealQuiz","");
+        // document.location.href = "result.html";
         return;
     }
     if (taskAr[ind].variants.length == 4) {
@@ -385,7 +391,6 @@ async function goBack() {
         document.location.href = 'question_2var.html';
     }
 }
-
 
 if (window.location.pathname == "/question.html") {   
 
@@ -425,7 +430,6 @@ if (window.location.pathname == "/question_2var.html") {
 }
 
 // send an answer
-
 let ans_ = document.querySelectorAll(".btn-outline-answer");
 if (ans_.length != 0) {
     ans_.forEach(element => {
@@ -469,15 +473,17 @@ async function timer() {
 
 let knopkaAr = document.querySelectorAll(".knopka");
 knopkaAr.forEach(element => {
-    let knopkaTaskN = element.innerHTML;
-    element.addEventListener('click', () => {
-        let tasks = JSON.parse(localStorage.getItem("question"));
-        localStorage.setItem("question-number", knopkaTaskN - 1);
-        if (tasks[knopkaTaskN-1].variants == 1) {
-            location.href = "/question_2var.html";
-        } else {
-            location.href = "/question.html";
-        }
-        answerQuestion();
-    })
+    if (!!localStorage.getItem("startRealQuiz")) {
+        let knopkaTaskN = element.innerHTML;
+        element.addEventListener('click', () => {
+            let tasks = JSON.parse(localStorage.getItem("question"));
+            localStorage.setItem("question-number", knopkaTaskN - 1);
+            if (tasks[knopkaTaskN - 1].variants == 1) {
+                location.href = "/question_2var.html";
+            } else {
+                location.href = "/question.html";
+            }
+            answerQuestion();
+        })
+    }
 });
