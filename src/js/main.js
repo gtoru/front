@@ -243,7 +243,7 @@ if (startQuiz) {
 }
 
 async function quizing() {
-
+// alert("123");
     let client = new AuthClient(baseUrl);
     const authentication = await client.authenticateAsync("admin", "admin");
     let token = authentication.responseData;
@@ -251,6 +251,11 @@ async function quizing() {
     let quizCl = new QuizClient(baseUrl);
     let allQuizes = await quizCl.getAllQuizzesAsync(token);
     let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
+    
+    // let index = localStorage.getItem("quiz_id_index");
+    // let Quiz = "quiz_id" + index;
+    // console.log(Quiz);
+    // let quiz = await quizCl.getQuizAsync(localStorage.getItem(Quiz), token);
 
     let tasks = quiz.responseData.tasks;
 
@@ -350,6 +355,7 @@ async function answerQuestion() {
         let quizCl = new QuizClient(baseUrl);
         let allQuizes = await quizCl.getAllQuizzesAsync(token);
         let quizid = allQuizes.responseData[1].quizId;
+        // let quizid = localStorage.getItem("quiz_id");
 
         await addAns.startNewSessionAsync(userid, quizid, token);
         console.log(JSON.parse(localStorage.getItem("answerArray")));
@@ -489,13 +495,50 @@ knopkaAr.forEach(element => {
 });
 
 if (location.pathname == "/chooseQuiz.html") {
-    async () => {
-        let quizCl = new QuizClient(baseUrl);
-        let allQuizes = await quizCl.getAllQuizzesAsync(token).responseData;
-        ol.insertAdjacentHTML('beforeend', '<p>Пока</p>');
+    insertQuizTitles();
+}
+
+let ind;
+
+async function insertQuizTitles() {
+    let quizCl = new QuizClient(baseUrl);
+    let auCl = new AuthClient(baseUrl);
+    const authentication = await auCl.authenticateAsync("admin", "admin");
+    let token = authentication.responseData;
+    let getQuizes = await quizCl.getAllQuizzesAsync(token);
+    let allQuizes = getQuizes.responseData;
+    console.log(allQuizes);
+    let xxx = document.getElementById('availableQuizzez-list');
+    if (xxx) {
+        ind = 0;
+        allQuizes.forEach(element => {
+            ind++;
+            let quiz_id = element.quizId;
+            let Quiz_id = "quiz_id" + ind;
+            localStorage.setItem(Quiz_id, quiz_id);
+            xxx.insertAdjacentHTML('beforeend', '<div class="_quizing_" id="_quizing' + ind + '">' + element.quizName + '</div><br>');
+            // let yyy = document.querySelectorAll("#_quizing");
+            // console.log(yyy);
+            // if (yyy[yyy.length - 1]) {
+            //     yyy[yyy.length - 1].addEventListener('click', dop_quizing);
+            // }
+        });
+    }
+    let _yy = document.querySelectorAll("._quizing_");
+    console.log(_yy);
+    if (_yy.length != 0) {
+        for (let index = 0; index < _yy.length; index++) {
+            _yy[index].addEventListener('click', dop_quizing);
+        }
+        _yy.forEach(element => {
+            element.addEventListener('click', dop_quizing);
+        });
     }
 }
-let xxx = document.getElementById('availableQuizzez-list');
-if (xxx) {
-    xxx.insertAdjacentHTML('beforeend', '<p>Тут будут тесты</p>');
+
+
+
+async function dop_quizing() {
+    localStorage.setItem("quiz_id_index", ind);
+    quizing();
 }
