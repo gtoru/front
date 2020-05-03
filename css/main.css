@@ -1027,12 +1027,15 @@ img {
 	padding: 30px 0 40px 0;
 }
 
+.availableQuizzez {
+	color: #0165B3;
+}
+
 .availableQuizzez-title {
 	margin-left: 20px;
 	font-size: 18px;
 	line-height: 21px;
 	font-weight: normal;
-	color: #0165B3;
 }
 
 @media (max-width: 1170px)

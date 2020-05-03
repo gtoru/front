@@ -239,23 +239,21 @@ const startQuiz = document.querySelector('.try_test_button');
 if (startQuiz) {
     // чтобы отделить пробный квиз от настоящего (временное рещение)
     localStorage.setItem("startRealQuiz","1");
-    startQuiz.addEventListener('click', quizing);
+    startQuiz.addEventListener('click', () => {
+        location.href = "chooseQuiz.html";
+    });
 }
 
 async function quizing() {
-// alert("123");
     let client = new AuthClient(baseUrl);
     const authentication = await client.authenticateAsync("admin", "admin");
     let token = authentication.responseData;
 
     let quizCl = new QuizClient(baseUrl);
-    let allQuizes = await quizCl.getAllQuizzesAsync(token);
-    let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
+    // let allQuizes = await quizCl.getAllQuizzesAsync(token);
+    // let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
     
-    // let index = localStorage.getItem("quiz_id_index");
-    // let Quiz = "quiz_id" + index;
-    // console.log(Quiz);
-    // let quiz = await quizCl.getQuizAsync(localStorage.getItem(Quiz), token);
+    let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
 
     let tasks = quiz.responseData.tasks;
 
@@ -305,7 +303,6 @@ async function createQuiz() {
 
 import {
     UserClient,
-    ClientBase
 } from "@gtoru/js-client";
 
 let next = document.querySelector(".goRight");
@@ -352,10 +349,7 @@ async function answerQuestion() {
 
         let userid = (await auCl.getSessionInfoAsync(token)).responseData.userId;
         let addAns = new UserClient(baseUrl);
-        let quizCl = new QuizClient(baseUrl);
-        let allQuizes = await quizCl.getAllQuizzesAsync(token);
-        let quizid = allQuizes.responseData[1].quizId;
-        // let quizid = localStorage.getItem("quiz_id");
+        let quizid = localStorage.getItem(localStorage.getItem("current"));
 
         await addAns.startNewSessionAsync(userid, quizid, token);
         console.log(JSON.parse(localStorage.getItem("answerArray")));
@@ -364,6 +358,7 @@ async function answerQuestion() {
             alert("Результаты отправлены");
         } else {
             alert("К сожалению, что-то пошло не так");
+            return;
         }
         await addAns.endSessionAsync(userid, token);
 
@@ -498,8 +493,6 @@ if (location.pathname == "/chooseQuiz.html") {
     insertQuizTitles();
 }
 
-let ind;
-
 async function insertQuizTitles() {
     let quizCl = new QuizClient(baseUrl);
     let auCl = new AuthClient(baseUrl);
@@ -510,35 +503,19 @@ async function insertQuizTitles() {
     console.log(allQuizes);
     let xxx = document.getElementById('availableQuizzez-list');
     if (xxx) {
-        ind = 0;
         allQuizes.forEach(element => {
-            ind++;
-            let quiz_id = element.quizId;
-            let Quiz_id = "quiz_id" + ind;
-            localStorage.setItem(Quiz_id, quiz_id);
-            xxx.insertAdjacentHTML('beforeend', '<div class="_quizing_" id="_quizing' + ind + '">' + element.quizName + '</div><br>');
-            // let yyy = document.querySelectorAll("#_quizing");
-            // console.log(yyy);
-            // if (yyy[yyy.length - 1]) {
-            //     yyy[yyy.length - 1].addEventListener('click', dop_quizing);
-            // }
+            localStorage.setItem(element.quizName, element.quizId);
+            xxx.insertAdjacentHTML('beforeend', '<div class="_quizing_">' + element.quizName + '</div><br>');
         });
     }
     let _yy = document.querySelectorAll("._quizing_");
-    console.log(_yy);
-    if (_yy.length != 0) {
-        for (let index = 0; index < _yy.length; index++) {
-            _yy[index].addEventListener('click', dop_quizing);
-        }
-        _yy.forEach(element => {
-            element.addEventListener('click', dop_quizing);
-        });
-    }
+    _yy.forEach(element => {
+        element.style.cursor = "pointer";
+        element.addEventListener('click', () => dop_quizing(element.innerHTML));
+    });
 }
 
-
-
-async function dop_quizing() {
-    localStorage.setItem("quiz_id_index", ind);
+async function dop_quizing(elem) {
+    localStorage.setItem("current", elem);
     quizing();
 }
