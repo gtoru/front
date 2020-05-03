@@ -324,7 +324,7 @@ hr {
 	/* background: url('/images/bgrnd.png') 100% 100% no-repeat; */
 }
 
-.circle {
+/* .circle {
 	width: 20px;
 	height: 20px;
 	font-size: 9pt;
@@ -334,7 +334,7 @@ hr {
 	background-color: #ffffff;
 	border-radius: 50%;
 
-}
+} */
 
 .bigbox {
 	width: 1000px;
@@ -387,7 +387,7 @@ hr {
 	border: 3px #0264B1 solid;
 	border-color: #3693C7;
 	box-shadow: 5px 5px 5px rgba(1, 148, 218, 0.5);
-	width: 400px;
+	width: 420px;
 }
 
 .btn-outline-answer:hover {
@@ -413,7 +413,7 @@ hr {
 }
 
 .answers {
-	width: 818px;
+	width: 900px;
 	display: block;
 	margin: 0 auto;
 	text-align: center;

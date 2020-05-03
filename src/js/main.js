@@ -328,8 +328,22 @@ if (answerQ) {
                     arr[arr.length] = createAns;
                     localStorage.setItem("answerArray", JSON.stringify(arr));
                 }
-                answerQuestion();
+                // answerQuestion();
             }
+        } else {
+            let createAns = {
+                taskNumber: (+localStorage.getItem("question-number")) - 1,
+                answer: ""
+            };
+            if (JSON.parse(localStorage.getItem("answerArray")) == null) {
+                let arr = [createAns];
+                localStorage.setItem("answerArray", JSON.stringify(arr));
+            } else {
+                let arr = JSON.parse(localStorage.getItem("answerArray"));
+                arr[arr.length] = createAns;
+                localStorage.setItem("answerArray", JSON.stringify(arr));
+            }
+            // answerQuestion();
         }
         answerQuestion();
     })
@@ -444,7 +458,18 @@ if (ans_.length != 0) {
                 localStorage.setItem("answerArray", JSON.stringify(arr));
             } else {
                 let arr = JSON.parse(localStorage.getItem("answerArray"));
-                arr[arr.length] = createAns;
+                let flag = false; let index;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i].taskNumber == createAns.taskNumber) {
+                        flag = true;
+                        index = i;
+                    }
+                }
+                if (flag) {
+                    arr[index] = createAns;
+                } else {
+                    arr[arr.length] = createAns;
+                }
                 localStorage.setItem("answerArray", JSON.stringify(arr));
             }
             answerQuestion();
@@ -488,6 +513,8 @@ knopkaAr.forEach(element => {
         })
     }
 });
+
+// выбор квиза
 
 if (location.pathname == "/chooseQuiz.html") {
     insertQuizTitles();
