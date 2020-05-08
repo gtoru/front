@@ -490,7 +490,11 @@ async function timer() {
     let time = +localStorage.getItem("timer");
     document.getElementById('timer').innerHTML = Math.floor(time / 60) + " : " + time % 60;
     localStorage.setItem("timer", time-1);
-    if (time <= 0) {
+    if (time < 0) {
+        location.href = "index.html";
+        alert("К сожалению, время вышло.");
+    }
+    else if (time == 0) {
         alert("К сожалению, время вышло.");
         localStorage.setItem("question-number", JSON.parse(localStorage.getItem("question")).length);
         answerQuestion();

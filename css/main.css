@@ -89,6 +89,8 @@ p {
 }
 
 .all-tasks-list {
+	padding: 10px;
+	width: 220px;
 	border-radius: 100px !important;
 }
 
@@ -538,7 +540,8 @@ img {
 }
 
 .test-page-container {
-	padding-top: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .box {
@@ -1024,17 +1027,26 @@ img {
 	justify-content: space-between;
 }
 
-.all-tasks-list {
-	width: 220px;
-}
-
 .rectangle-timer {
 	width: 220px;
 }
 
 .btn-outline-answer {
-	padding: 5px;
+	padding: 15px;
 	margin: 0 10px;
+}
+
+.btn-outline-answer-list {
+	width: 60px !important;
+	height: 60px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.session-first,
+.session-second {
+	display: flex;
+	justify-content: space-between;
 }
 
 @media (max-width: 1170px)
@@ -1312,7 +1324,6 @@ img {
 	}
 	.footer img {
 		max-width: 70%;
-		max-height: 70%;
 	}
 	.password-control-reg {
 		right: 10px;
@@ -1466,6 +1477,20 @@ img {
 		padding: 0 5px;
 	}
 	/*
+	question
+	*/
+	.session-first,
+	.session-second {
+		display: block;
+	}
+	.btn-outline-answer {
+		margin-top: 10px;
+		font-size: 12px;
+	}
+	.formulation {
+		font-size: 12px;
+	}
+	/*
 	question_2var
 	*/
 	.formulation {
@@ -1544,6 +1569,9 @@ img {
 	}
 	.footer {
 		width: 320px;
+	}
+	.footer img {
+		max-width: 50%;
 	}
 
 	/*authorization*/
@@ -1757,5 +1785,15 @@ img {
 		width: 250px;
 		font-size: 16px;
 		height: 40px;
+	}
+	/*
+	question
+	*/
+	._btn-outline-answer_ {
+		width: 300px;
+		font-size: 11px;
+	}
+	.formulation {
+		font-size: 11px;
 	}
 }
