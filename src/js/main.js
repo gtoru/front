@@ -40,8 +40,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -366,6 +366,7 @@ async function answerQuestion() {
         let quizid = localStorage.getItem(localStorage.getItem("current"));
 
         await addAns.startNewSessionAsync(userid, quizid, token);
+
         console.log(JSON.parse(localStorage.getItem("answerArray")));
         let addAnsResp = await addAns.addAnswerAsync(userid, JSON.parse(localStorage.getItem("answerArray")), token);
         if (addAnsResp.responseCode == 200) {
@@ -376,8 +377,12 @@ async function answerQuestion() {
         }
         
         let _res = await addAns.getResultsAsync(userid,token);
-        let _getRes = _res.responseData[_res.responseData.length-1].result;
+        let _resData = _res.responseData;
+        let _getRes = _resData[_resData.length - 1].result;
+        console.log(_resData[_resData.length - 1]);
+        console.log(_getRes);
         localStorage.setItem("quizResult", _getRes);
+        
         await addAns.endSessionAsync(userid, token);
 
         localStorage.setItem("startRealQuiz","");
@@ -392,6 +397,7 @@ async function answerQuestion() {
 }
 
 // getting results
+
 if (location.pathname == "/result.html") {
     document.getElementById("points-number").innerHTML = localStorage.getItem("quizResult");
 }
