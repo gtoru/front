@@ -374,6 +374,10 @@ async function answerQuestion() {
             alert("К сожалению, что-то пошло не так");
             return;
         }
+        
+        let _res = await addAns.getResultsAsync(userid,token);
+        let _getRes = _res.responseData[_res.responseData.length-1].result;
+        localStorage.setItem("quizResult", _getRes);
         await addAns.endSessionAsync(userid, token);
 
         localStorage.setItem("startRealQuiz","");
@@ -385,6 +389,11 @@ async function answerQuestion() {
     } else if (taskAr[ind].variants.length == 1) {
         document.location.href = 'question_2var.html';
     }
+}
+
+// getting results
+if (location.pathname == "/result.html") {
+    document.getElementById("points-number").innerHTML = localStorage.getItem("quizResult");
 }
 
 const prev = document.querySelector(".goLeft");
@@ -549,4 +558,19 @@ async function insertQuizTitles() {
 async function dop_quizing(elem) {
     localStorage.setItem("current", elem);
     quizing();
+}
+
+// получение сертификата
+let getSert = document.querySelector(".get-sertificate");
+if (getSert) {
+    getSert.addEventListener('click', getSertificate);
+}
+
+async function getSertificate() {
+    if (document.getElementById('sert-option2').checked) {
+        alert('К сожалению, в условиях коронавируса невозможно плучить очно сертификат. В ближайшее время он будет выслан вам по электронной почте');
+    } else {
+        alert('Сертификат в ближайшее время будет вам выслан!');
+    }
+    location.href = "index.html";
 }
