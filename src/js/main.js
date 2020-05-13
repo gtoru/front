@@ -376,14 +376,12 @@ async function answerQuestion() {
             return;
         }
         
-        let _res = await addAns.getResultsAsync(userid,token);
+        await addAns.endSessionAsync(userid, token);
+
+        let _res = await addAns.getResultsAsync(userid, token);
         let _resData = _res.responseData;
         let _getRes = _resData[_resData.length - 1].result;
-        console.log(_resData[_resData.length - 1]);
-        console.log(_getRes);
         localStorage.setItem("quizResult", _getRes);
-        
-        await addAns.endSessionAsync(userid, token);
 
         localStorage.setItem("startRealQuiz","");
         document.location.href = "result.html";
