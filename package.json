@@ -34,6 +34,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@gtoru/js-client": "^1.4.0"
+    "@gtoru/js-client": "^1.5.0"
   }
 }

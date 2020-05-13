@@ -607,3 +607,18 @@ async function getSertificate() {
     }
     location.href = "index.html";
 }
+
+// количество пользователей
+
+if (location.pathname == "/admin.html") {
+    getUserCount();
+}
+
+async function getUserCount() {
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    let token = authentication.responseData;
+    let userClient = new UserClient(baseUrl);
+    let usercount = await userClient.getUserCountAsync(token);
+    document.getElementById("number-of-users").innerHTML = usercount.responseData;
+}
