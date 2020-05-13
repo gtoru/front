@@ -89,6 +89,9 @@ async function authUserAsync(e) {
     if (email == "admin" && pass == "admin") {
         localStorage.setItem("admin-only","1");
     }
+
+    localStorage.setItem("setLogin",email);
+    localStorage.setItem("setPassword",pass);
     
     const response = await client.authenticateAsync(email, pass);
     
@@ -210,7 +213,7 @@ async function addNewTask() {
 
     let taskClient = new TaskClient(baseUrl);
     let client = new AuthClient(baseUrl);
-    const authentication = await client.authenticateAsync("admin", "admin");
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
     console.log(task);
     let taskCreation = await taskClient.createTaskAsync(task, token);
@@ -245,8 +248,14 @@ if (startQuiz) {
 }
 
 async function quizing() {
+
+    if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
+        alert("Сначала вам нужно зарегистрироваться!");
+        location.href = "index.html";
+        return;
+    }
     let client = new AuthClient(baseUrl);
-    const authentication = await client.authenticateAsync("admin", "admin");
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
     let quizCl = new QuizClient(baseUrl);
@@ -279,8 +288,14 @@ if (addQuizFinish) {
 }
 
 async function createQuiz() {
+
+    if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
+        alert("Сначала вам нужно зарегистрироваться!");
+        location.href = "index.html";
+        return;
+    }
     let client = new AuthClient(baseUrl);
-    const authentication = await client.authenticateAsync("admin", "admin");
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
     let quizClient = new QuizClient(baseUrl);
@@ -357,11 +372,16 @@ async function answerQuestion() {
     }
     if (ind == taskAr.length) {
 
-        let auCl = new AuthClient(baseUrl);
-        const authentication = await auCl.authenticateAsync("admin", "admin");
-        let token = authentication.responseData;
+    if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
+        alert("Сначала вам нужно зарегистрироваться!");
+        location.href = "index.html";
+        return;
+    }
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    let token = authentication.responseData;
 
-        let userid = (await auCl.getSessionInfoAsync(token)).responseData.userId;
+        let userid = (await client.getSessionInfoAsync(token)).responseData.userId;
         let addAns = new UserClient(baseUrl);
         let quizid = localStorage.getItem(localStorage.getItem("current"));
 
@@ -458,7 +478,7 @@ if (window.location.pathname == "/question_2var.html") {
 }
 
 // send an answer
-let ans_ = document.querySelectorAll(".btn-outline-answer");
+let ans_ = document.querySelectorAll("._btn-outline-answer_");
 if (ans_.length != 0) {
     ans_.forEach(element => {
         element.addEventListener('click', () => {
@@ -538,10 +558,19 @@ if (location.pathname == "/chooseQuiz.html") {
 }
 
 async function insertQuizTitles() {
-    let quizCl = new QuizClient(baseUrl);
-    let auCl = new AuthClient(baseUrl);
-    const authentication = await auCl.authenticateAsync("admin", "admin");
+
+    if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
+        alert("Сначала вам нужно зарегистрироваться!");
+        location.href = "index.html";
+        return;
+    }
+    let client = new AuthClient(baseUrl);
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
+
+
+    let quizCl = new QuizClient(baseUrl);
+    
     let getQuizes = await quizCl.getAllQuizzesAsync(token);
     let allQuizes = getQuizes.responseData;
     console.log(allQuizes);

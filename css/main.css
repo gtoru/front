@@ -556,12 +556,12 @@ img {
 }
 
 .knopka {
-	font-size: 40px;
-	text-align: center;
+	/* font-size: 40px;
+	text-align: center; */
 	color: #0293DC; 
 	background: #FFFFFF; 
 	padding: 5px; 
-	border-radius: 10px;
+	border-radius: 20px;
 	border: 2px solid #0293DC;
 	margin-top: 20px;
 	margin-left: 15px;
@@ -570,9 +570,9 @@ img {
 	height: 75px;
 } 
 	
-.knopka:hover { 
+/* .knopka:hover { 
 	border: 2.5px solid #0264B1;
-}
+} */
 
 .task_list {
 	margin: 0 20px;
@@ -1345,6 +1345,9 @@ img {
 	.password-control-reg {
 		right: 10px;
 	}
+	.footer {
+		margin-left: 20px !important;
+	}
 	/*
 	example
 	*/
@@ -1500,6 +1503,9 @@ img {
 	.session-second {
 		display: block;
 	}
+	.session-second {
+		margin-top: 0 !important;
+	}
 	.btn-outline-answer {
 		margin-top: 10px;
 		font-size: 12px;
@@ -1616,6 +1622,10 @@ img {
 	.popup-name-border,
 	.popup-contacts-border {
 		font-size: 14px;
+	}
+	.password-control {
+		top: 6px;
+		right: 20px;
 	}
 	/*
 	example
@@ -1812,5 +1822,8 @@ img {
 	}
 	.formulation {
 		font-size: 11px;
+	}
+	.bigbox {
+		height: 165px;
 	}
 }
