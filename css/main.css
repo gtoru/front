@@ -1066,6 +1066,26 @@ img {
 	background: url("/images/double-left-arrow.svg") no-repeat;
 }
 
+/*
+question_3var
+*/
+.quest1,
+.quest2,
+.quest3,
+.quest4 {
+	background: #D4E8FF;
+	border: 1px solid #0293DC;
+	border-radius: 10px;
+	width: 800px;
+	height: 30px;
+	outline: none;
+	padding: 5px;
+	margin-top: 10px;
+}
+.quest1 {
+	margin-top: 50px;
+}
+
 @media (max-width: 1170px)
 {
 	.contacts {
@@ -1520,7 +1540,11 @@ img {
 		font-size: 16px;
 	}
 	.answers,
-	.single-quest {
+	.single-quest,
+	.quest1,
+	.quest2,
+	.quest3,
+	.quest4 {
 		width: 500px;
 	}
 	.goLeft,
@@ -1783,7 +1807,11 @@ img {
 	/question_2var
 	*/
 	.answers,
-	.single-quest {
+	.single-quest,
+	.quest1,
+	.quest2,
+	.quest3,
+	.quest4 {
 		width: 320px;
 	}
 	.answer-buttons {
