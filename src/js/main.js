@@ -66,6 +66,8 @@ async function regUserAsync(e) {
         password: document.getElementById('password-input').value,
         personalInfo: personalInfo
     };
+    localStorage.setItem("setLogin", document.getElementById('mail').value);
+    localStorage.setItem("setPassword", document.getElementById('password-input').value);
     await client.registerAsync(user);
     alert("Пользователь успешно зарегестрирован");
     localStorage.setItem("flag", "1");
