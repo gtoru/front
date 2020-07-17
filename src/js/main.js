@@ -215,8 +215,8 @@ async function addNewTask() {
 
     let taskClient = new TaskClient(baseUrl);
     let client = new AuthClient(baseUrl);
-    const authentication = await client.authenticateAsync("admin","admin");
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    // const authentication = await client.authenticateAsync("admin","admin");
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
     console.log(task);
     let taskCreation = await taskClient.createTaskAsync(task, token);
@@ -252,29 +252,55 @@ if (startQuiz) {
 
 async function quizing() {
 
+    
+
+    let client = new AuthClient(baseUrl);
+
     if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
         alert("Сначала вам нужно зарегистрироваться!");
         location.href = "index.html";
         return;
     }
-    let client = new AuthClient(baseUrl);
-        const authentication = await client.authenticateAsync("admin", "admin");
+    
+    // const authentication = await client.authenticateAsync("admin", "admin");
 
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
-    let quizCl = new QuizClient(baseUrl);
-    // let allQuizes = await quizCl.getAllQuizzesAsync(token);
-    // let quiz = await quizCl.getQuizAsync(allQuizes.responseData[1].quizId,token);
+
+    // начинаем сессию
+    let userid = (await client.getSessionInfoAsync(token)).responseData.userId;
+    let getTasks = new UserClient(baseUrl);
+    let quizid = localStorage.getItem(localStorage.getItem("current"));
+    let start = await getTasks.startNewSessionAsync(userid, quizid, token);
+
     
-    let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
+    console.log(start);
+    console.log((await client.getSessionInfoAsync(token)).responseData);
 
-    let tasks = quiz.responseData.tasks;
 
-    localStorage.setItem("question", JSON.stringify(tasks));
-    localStorage.setItem("question-number", 0);
 
-    document.location.href = "question.html";
+
+    //let quizCl = new QuizClient(baseUrl);
+    
+    //let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
+
+    // alert(quiz);
+    //console.log(quiz);
+    //alert(quiz.responseData);
+
+
+    //let tasks = quiz.responseData.tasks;
+
+    //localStorage.setItem("question", JSON.stringify(tasks));
+
+
+    
+
+
+    //localStorage.setItem("question-number", 0);
+
+    //document.location.href = "question.html";
 }
 
 const addQuiz = document.querySelector('.add-quiz-button');
@@ -300,9 +326,9 @@ async function createQuiz() {
         return;
     }
     let client = new AuthClient(baseUrl);
-        const authentication = await client.authenticateAsync("admin", "admin");
+    // const authentication = await client.authenticateAsync("admin", "admin");
 
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
     let quizClient = new QuizClient(baseUrl);
@@ -385,9 +411,9 @@ async function answerQuestion() {
         return;
     }
     let client = new AuthClient(baseUrl);
-        const authentication = await client.authenticateAsync("admin", "admin");
+    // const authentication = await client.authenticateAsync("admin", "admin");
 
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
         let userid = (await client.getSessionInfoAsync(token)).responseData.userId;
@@ -574,9 +600,9 @@ async function insertQuizTitles() {
         return;
     }
     let client = new AuthClient(baseUrl);
-        const authentication = await client.authenticateAsync("admin", "admin");
+    // const authentication = await client.authenticateAsync("admin", "admin");
 
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
 
@@ -627,9 +653,9 @@ if (location.pathname == "/admin.html") {
 
 async function getUserCount() {
     let client = new AuthClient(baseUrl);
-        const authentication = await client.authenticateAsync("admin", "admin");
+    // const authentication = await client.authenticateAsync("admin", "admin");
 
-    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
     let userClient = new UserClient(baseUrl);
     let usercount = await userClient.getUserCountAsync(token);
