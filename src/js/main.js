@@ -1,15 +1,53 @@
 
-var menuButton = document.querySelector('.menu-button');
-var menu = document.querySelector('.header');
+
+$(document).ready(function () {
+    $("#menu").on("click", "button", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1500);
+    });
+});
+
+const modalAuth = document.querySelector('.modal-auth'),
+    getIn = document.querySelector('.get-in'),
+    informationBtn = document.querySelector('.information-btn');
+
+const closeModal = event => {
+    const target = event.target;
+    if (target.closest('.modal__close') || target.classList.contains('modal') || event.code === 'Escape') {
+        modalAuth.classList.add('hide');
+        document.removeEventListener('keydown', closeModal);
+    }
+    if (event.code === 'Enter') {
+        document.addEventListener('keyup', authUserAsync);
+    }
+};
+
+if (getIn) {
+    getIn.addEventListener('click', () => {
+        modalAuth.classList.remove('hide');
+        document.addEventListener('keydown', closeModal);
+    });
+}
+
+if (modalAuth) {
+    modalAuth.addEventListener('click', closeModal);
+}
+
+let menuButton = document.querySelector('.menu-button');
+let menu = document.querySelector('.header');
 menuButton.addEventListener('click', function () {
     menuButton.classList.toggle('menu-button-active');
     menu.classList.toggle('header-active');
-})
+});
 
- const passwordControl = document.querySelector('.password-control');
+const passwordControl = document.querySelector('.password-control');
  if (passwordControl) {
     passwordControl.addEventListener('click', show_hide_password);
- }
+};
 
 function show_hide_password(event) {
     var input = document.getElementById('password-input');
@@ -21,7 +59,7 @@ function show_hide_password(event) {
         input.setAttribute('type', 'password');
     }
     return false;
-}
+};
 
 const consentData = document.querySelector('.check-consent');
 if (consentData)
@@ -34,19 +72,18 @@ function check() {
         submit.disabled = '';
     else
         submit.disabled = 'disabled';
-}
-
+};
 
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
     regNewUser.addEventListener('click', regUserAsync);
-}
+};
 
 async function regUserAsync(e) {
     e.preventDefault();
@@ -74,12 +111,12 @@ async function regUserAsync(e) {
     localStorage.setItem("login", document.getElementById('mail').value);
     localStorage.setItem("auth-hide","1");
     document.location.href = "testing.html";
-}
+};
 
 const authUser = document.querySelector('.popup-button');
 if (authUser) {
     authUser.addEventListener('click', authUserAsync);
-}
+};
 
 let email;
 
@@ -90,7 +127,8 @@ async function authUserAsync(e) {
     let pass = document.getElementById('password-input').value;
     if (email == "admin" && pass == "admin") {
         localStorage.setItem("admin-only","1");
-    }
+    };
+    modalAuth.classList.add('hide');
 
     localStorage.setItem("setLogin",email);
     localStorage.setItem("setPassword",pass);
@@ -112,12 +150,12 @@ async function authUserAsync(e) {
         else {
             document.location.href = "/testing.html";
         }
-    }
-}
+    };
+};
 
 if (!!localStorage.getItem("admin-only")) {
     document.getElementById('admin-only').hidden = false;
-}
+};
 
 let adminPage = document.getElementById('admin-only');
 if (adminPage && !document.getElementById('admin-only').hidden) {
@@ -142,6 +180,7 @@ if (outUser) {
 
 function outAuthUser() {
     if (!!localStorage.getItem("flag")) {
+        modalAuth.classList.add('hide');
         document.location.href = "index.html";
         localStorage.clear();
         document.getElementById("authentication").style.visibility = "visible";

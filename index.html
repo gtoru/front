@@ -8,39 +8,43 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm">
+	<nav class="navbar navbar-expand-sm container" id="menu">
 		<a class="navbar-brand" href="index.html">
 			<img src="images/logo.jpg" alt="Logo">
 		</a>
 		<div class="header">
-			<ul class="nav nav-pills">
+			<ul class="nav nav-pills" >
 				<li class="nav-item">
-					<button class="btn btn-outline-primary" onclick="window.location.href = 'example.html';">ПРИМЕРЫ
-						ТЕСТОВ</button>
+					<button href="#info" class="btn btn-outline-primary information-btn">
+						ИНФОРМАЦИЯ
+					</button>
 				</li>
 				<li class="nav-item">
-					<button class="btn btn-outline-primary" onclick="window.location.href = 'testing.html';">ПЕРЕЙТИ К
-						ТЕСТИРОВАНИЮ</button>
+					<button href="#test" class="btn btn-outline-primary">
+						ПЕРЕЙТИ К ТЕСТИРОВАНИЮ
+					</button>
 				</li>
 				<li class="nav-item">
-					<button class="btn btn-outline-primary"
-						onclick="window.location.href = 'information.html';">ИНФОРМАЦИЯ</button>
-				</li>
-				<li class="nav-item">
-					<button class="btn btn-outline-primary">СКАЧАТЬ ПРИЛОЖЕНИЕ</button>
+					<a class="btn btn-outline-primary download-app">
+						СКАЧАТЬ ПРИЛОЖЕНИЕ
+					</a>
 				</li>
 				<li>
-					<button class="btn btn-outline-primary" id="admin-only" hidden>АДМИНИСТРАТОРУ</button>
+					<button class="btn btn-outline-primary" id="admin-only" hidden>
+						АДМИНИСТРАТОРУ
+					</button>
 				</li>
 				<li class="nav-item">
-					<a href="#makeDark"><button class="btn btn-outline-primary getOut" id="enteringBtnId">ВОЙТИ</button></a>
+					<a class="btn btn-outline-primary get-in getOut" id="enteringBtnId">
+						ВОЙТИ
+					</a>
 				</li>
 			</ul>
 		</div>
 		<div class="menu-button"></div>
 	</nav>
-	<div class="main-container d-none d-md-block">
-		<hr>
+	<!-- <button class="modal__close">&#10005;</button> -->
+	<div class="main-container d-none d-md-block container">
 		<div id="carousel" class="carousel slide carousel-fade d-block mx-auto w-75 m-3" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -68,9 +72,9 @@
 			</a>
 		</div>
 	</div>
-	<div class="main-container">
+	<div class="main-container main-container-content">
 		<hr>
-		<div class="reg-holder" style="background: url('images/bgrnd.png')">
+		<div class="reg-holder container">
 			<div class="reg_title">ГТО по русскому языку</div>
 			<div class="field">
 				<p>Проект «ГТО по русскому языку» направлен на развитие всестороннего применения, распространения и
@@ -81,9 +85,9 @@
 				<p>Проект нацелен на тех, кто хочет повысить общий уровень грамотности и кто по роду своей деятельности
 					осуществляет официально-деловую коммуникацию.</p>
 			</div>
-			<div id="makeDark">
+			<div class="modal modal-auth hide">
 				<div class="popup-holder authorization-popup-holder">
-					<a href="#" class="close">×</a>
+					<button class="modal__close">&#10005;</button>
 					<div class="popup-bg"></div>
 					<div class="close-popup ico"></div>
 					<div class="popup-wrapper authorization-popup">
@@ -114,12 +118,75 @@
 					</div>
 				</div>
 			</div>
-			<a href="#makeDark"><button class="reg-auth_button" id="authentication">Авторизация</button></a>
+			<a href="#makeDark">
+				<button class="reg-auth_button" id="authentication">
+					Авторизация
+				</button>
+			</a>
+		</div>
+
+		<div class="information-container container" id="info">
+			<div class="information-title">
+				<h1 class="info-title">
+					Подробнее о проекте “ГТО по русскому языку”
+				</h1>
+			</div>
+			<div class="info-refs">
+				<a href="info/Информационное письмо.docx" class="info-letter">Скачать информационное письмо</a>
+				<a href="info/тест ГТО.docx" class="training">Скачать пробный вариант</a>
+			</div>
+		</div>
+		<div class="testing-container container" id="test">
+			<h1 class="gto-text">ГТО по русскому языку</h1>
+			<h2 class="gto-description">Проект «ГТО по русскому языку» разработан РОО «Ассоциация выпускников президентской
+				программы Ростовской области» совместно с Институтом филологии, журналистики и межкультурной коммуникации
+				Южного федерального университета.
+			</h2>
+			<div class="main-testing-content">
+				<div class="par-1">
+					<p>Результаты теста «ГТО по русскому языку» можно узнать с понедельника по пятницу с 10:00 до 17:00 по
+						адресу: 344006, г. Ростов-на-Дону, пер. Университетский 93, к. 3.; по электронному адресу:
+						gto-russia@yandex.ru; по телефонам: +7(863) 305-19-98; +7(863) 218-40-00 (доб. 10623). Контактные
+						лица: Инна Викторовна Ковтуненко, Виктория Сергеевна Борченко.
+					</p>
+				</div>
+				<div class="par-2">
+					<p>
+						Участники, успешно прошедшие тест «ГТО по русскому языку», получают нагрудный значок «ГТО по
+						русскому языку» и сертификат, подтверждающий высокий уровень владения государственным языком
+						Российской Федерации.
+					</p>
+				</div>
+				<div class="par-3-important">
+					<p>
+						Важно!
+					</p>
+					<p>
+						Результаты теста «ГТО по русскому языку» являются конфиденциальной информацией и предоставляются на
+						электронную почту или посредствам sms-уведомления на телефонный номер, указанный в анкете участника
+						«ГТО по русскому языку».
+					</p>
+				</div>
+				<div class="par-4">
+					<p>Вопросы будут появляться по одному.</p>
+					<p>Если вы затрудняетесь ответить на вопрос, пропустите его. Потом у вас будет возможность к нему
+						вернуться.
+					</p>
+				</div>
+				<div class="par-5">
+					<p>Количество заданий: 25</p>
+					<p>Время выполнения теста: 30 минут.</p>
+					<p>Максимальное количество баллов: 100</p>
+				</div>
+			</div>
+			<div class="btn_try">
+				<button class="try_test_button">Начать тестирование</button>
+			</div>
 		</div>
 		<hr>
 	</div>
 
-	<div class="contacts">
+	<div class="contacts container">
 		<div>
 			<p class="organization">По организаторским вопросам:</p>
 		</div>
@@ -131,7 +198,7 @@
 			<p class="e_mail">электронный адрес: <a href="mailto:gto-russia@yandex.ru">gto-russia@yandex.ru</a> </p>
 		</div>
 	</div>
-	<ul class="footer">
+	<ul class="footer container">
 		<li class="gto-logo">
 			<img src="images/gto-logo-footer.png" x>
 		</li>

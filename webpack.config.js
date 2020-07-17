@@ -120,12 +120,6 @@ module.exports = {
             filename: 'testing.html'
         }),
         new HtmlWebpackPlugin({
-            template: './information.html',
-            inject: true,
-            chunks: ['app'],
-            filename: 'information.html'
-        }),
-        new HtmlWebpackPlugin({
             template: './question.html',
             inject: true,
             chunks: ['app'],

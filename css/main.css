@@ -1,7 +1,6 @@
 body {
-	/*шрифт норм чет не подключается*/
 	margin: 0 auto;
-	width: 1140px;
+	
 }
 
 h6, a {
@@ -13,21 +12,43 @@ p {
 	font-size: 18px;
 }
 
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 170, 255, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
 .header {
 	width: 1060px;
 }
 
+.container {
+	width: 1140px;
+}
+
 .nav {
-	/* width: 1140px; */
 	display: flex;
 	justify-content: space-between;
+}
+
+.nav-pills {
+	display: flex;
+	justify-content: space-around;
 }
 
 .navbar {
 	margin-top: 1.5em;
 	margin-top: 2em;
 	width: 1140px;
-	/* border-radius: 100px; */
 	margin-bottom: 20px;
 	padding-right: 0;
 	padding-left: 0;
@@ -38,7 +59,6 @@ p {
 }
 
 .carousel-item img{
-	/*width: 12em;*/
 	height: 12em;
 }
 
@@ -51,6 +71,23 @@ p {
 
 .auth .btn-outline-primary {
 	width: 230px;
+}
+
+.download-app {
+	color: #0165B3 !important;
+}
+
+.download-app:hover {
+	color: #fff !important;
+}
+
+.header-active {
+	z-index: 5;
+}
+
+.menu-button-active::before,
+.menu-button-active::after {
+	z-index: 6;
 }
 
 .popup-holder{
@@ -66,6 +103,37 @@ p {
 	border-radius: 8px;
 	background: linear-gradient(133.6deg, #0165B3 63.83%, #6CC8F7 100%),
 	#0165B3;
+}
+
+.modal__close {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 24px;
+	line-height: 24px;
+	height: 45px;
+	width: 45px;
+	background-color: #fff;
+	color: red;
+	border-radius: 100px;
+	transition: all .3s;
+}
+
+.hide {
+	display: none;
+}
+
+.modal__close:hover {
+	color: #fff;
+	background-color: red;
+}
+
+.main-container-content {
+	background-image: url('/images/bgrnd.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #makeDark {
@@ -652,17 +720,17 @@ img {
 
 .info-title {
 	color: #0165B3;
-	width: 1000px;
+	width: 900px;
 	margin: auto;
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: normal;
 	text-align: center;
 	border: 1px solid #0165B3;
 	box-shadow: 5px 5px 5px rgba(1, 148, 219, 0.5);
 	border-radius: 100px;
 	background-color: #fff;
-	padding: 22px 0;
+	padding: 10px 0;
 }
 
 .info-refs {
@@ -1320,6 +1388,14 @@ question_3var
 	*/
 	.password-control-reg {
 		right: 110px;
+	}
+
+	.carousel-control-prev {
+		left: -55px;
+	}
+
+	.carousel-control-next {
+		right: -65px;
 	}
 }
 
