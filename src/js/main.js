@@ -77,8 +77,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-let baseUrl = "http://localhost:8080";
-// let baseUrl = "https://" + window.location.host;
+// let baseUrl = "http://localhost:8080";
+let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -297,17 +297,19 @@ async function quizing() {
         return;
     }
     
-    // const authentication = await client.authenticateAsync("admin", "admin");
+    const authentication = await client.authenticateAsync("admin", "admin");
 
-    const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
+    // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
-    // Сессия уже начата
+    // Сессия уже начата, следующую строчку использовать не надо, но пусть она тут полежит
     // let start = await getTasks.startNewSessionAsync(userid, quizid, token);
 
     let quizCl = new QuizClient(baseUrl);
     
     let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
+    
+    console.log(localStorage.getItem("current"));
 
     // запоминаем задания
     let tasks = quiz.responseData.tasks;
