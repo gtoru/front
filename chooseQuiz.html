@@ -4,29 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <title>ГТО по русскому языку</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm container">
         <a class="navbar-brand" href="index.html">
             <img src="images/logo.jpg" alt="Logo">
         </a>
         <div class="header">
             <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" onclick="window.location.href = 'example.html';">ПРИМЕРЫ
-                        ТЕСТОВ</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" onclick="window.location.href = 'testing.html';">ПЕРЕЙТИ К
-                        ТЕСТИРОВАНИЮ</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary"
-                        onclick="window.location.href = 'information.html';">ИНФОРМАЦИЯ</button>
-                </li>
                 <li class="nav-item">
                     <button class="btn btn-outline-primary">СКАЧАТЬ ПРИЛОЖЕНИЕ</button>
                 </li>
@@ -41,49 +29,56 @@
         </div>
         <div class="menu-button"></div>
     </nav>
-    <div class="choose-conainer" style="background: url('images/bgrnd.png')">
-        <hr>
-        <div class="main-choose-title">
-            <h1 class="choose-title">Выберите тест</h1>
-        </div>
-        <div class="availableQuizzez">
-            <h5 class="availableQuizzez-title">
-                Список доступных тестов:
-            </h5>
-            <div >
-                <ol id="availableQuizzez-list">
+    <div class="choose-conainer">
+        <div class="choose-quiz-container">
+            <hr>
+            <div class="container">
+                <div class="main-choose-title">
+                    <h1 class="choose-title">Выберите тест</h1>
+                </div>
+                <div class="availableQuizzez">
+                    <h5 class="availableQuizzez-title">
+                        Список доступных тестов:
+                    </h5>
+                    <div>
+                        <ol id="availableQuizzez-list">
 
-                </ol>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="container">
+        <div class="contacts">
+            <div>
+                <p class="organization">По организаторским вопросам:</p>
+            </div>
+            <div class="numbers">
+                <p class="number_1">+79034034111 Инна Викторовна Ковтуненко</p>
+                <p class="number_2">+79282964596 Евгений Евгеньевич Коржов</p>
+            </div>
+            <div>
+                <p class="e_mail">электронный адрес: <a href="mailto:gto-russia@yandex.ru">gto-russia@yandex.ru</a> </p>
             </div>
         </div>
-        <hr>
+        <ul class="footer">
+            <li class="gto-logo">
+                <img src="images/gto-logo-footer.png" x>
+            </li>
+            <li class="sfedu-logo">
+                <img src="images/sfedu_logo.png">
+            </li>
+            <li class="smth-logo">
+                <img src="images/smth_logo.png">
+            </li>
+            <li class="filfac-logo">
+                <img src="images/filfac_logo.png">
+            </li>
+        </ul>
     </div>
-    <div class="contacts">
-        <div>
-            <p class="organization">По организаторским вопросам:</p>
-        </div>
-        <div class="numbers">
-            <p class="number_1">+79034034111 Инна Викторовна Ковтуненко</p>
-            <p class="number_2">+79282964596 Евгений Евгеньевич Коржов</p>
-        </div>
-        <div>
-            <p class="e_mail">электронный адрес: <a href="mailto:gto-russia@yandex.ru">gto-russia@yandex.ru</a> </p>
-        </div>
-    </div>
-    <ul class="footer">
-        <li class="gto-logo">
-            <img src="images/gto-logo-footer.png" x>
-        </li>
-        <li class="sfedu-logo">
-            <img src="images/sfedu_logo.png">
-        </li>
-        <li class="smth-logo">
-            <img src="images/smth_logo.png">
-        </li>
-        <li class="filfac-logo">
-            <img src="images/filfac_logo.png">
-        </li>
-    </ul>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

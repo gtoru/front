@@ -8,24 +8,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm container">
         <a class="navbar-brand" href="index.html">
             <img src="images/logo.jpg" alt="Logo">
         </a>
         <div class="header">
             <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" onclick="window.location.href = 'example.html';">ПРИМЕРЫ
-                        ТЕСТОВ</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" onclick="window.location.href = 'testing.html';">ПЕРЕЙТИ К
-                        ТЕСТИРОВАНИЮ</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary"
-                        onclick="window.location.href = 'information.html';">ИНФОРМАЦИЯ</button>
-                </li>
                 <li class="nav-item">
                     <button class="btn btn-outline-primary">СКАЧАТЬ ПРИЛОЖЕНИЕ</button>
                 </li>
@@ -41,70 +29,53 @@
         <div class="menu-button"></div>
     </nav>
 
-    <div class="question_container" style="background: url('images/bgrnd.png')">
+    <div class="question_container">
         <hr>
-        <div class="buttons_box">
-            <div class="buttons-box-first">
-                <div class="rectangle">
-                    Задание <span id="task-number2"></span>
+        <div class="container">
+            <div class="buttons_box">
+                <div class="buttons-box-first">
+                    <div class="rectangle">
+                        Задание <span id="task-number"></span>
+                    </div>
+                    <button class="btn-outline-primary all-tasks-list"
+                        onclick="window.location.href ='test_page.html'">К
+                        списку
+                        заданий</button>
                 </div>
-                <button class="btn-outline-primary all-tasks-list" onclick="window.location.href ='test_page.html'">К списку
-                заданий</button>
-            </div>
-            <div class="buttons-box-second">
-                <div class="rectangle time">Времени осталось:</div>
-                <div class="rectangle rectangle-timer">
-                    <span id="timer"></span>
-                    <div id="tut"></div>
+                <div class="buttons-box-second">
+                    <div class="rectangle time">Времени осталось:</div>
+                    <div class="rectangle rectangle-timer">
+                        <span id="timer"></span>
+                        <div id="tut"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="d-flex justify-content-center" style="margin-top: 50px;">
-            <div id="question" class="bigbox">
-                <p class="formulation" id="formulation">Вопрос</p>
+            <div class="d-flex justify-content-center" style="margin-top: 50px;">
+                <div id="question" class="bigbox">
+                    <p class="formulation" id="formulation">Вопрос</p>
+                </div>
+            </div>
+            <div class="answers">
+                <input type="text" class="single-quest" id="single-quest">
+                <div class="answer-buttons">
+                    <button class="goLeft">
+                        <img src="images/double-left-arrow.svg" width="50" height="50">
+                    </button>
+                    <button class="btn-outline-submit btn-outline-submit-answer">Ответить</button>
+                    <button class="goRight">
+                        <img src="images/double-right-arrow.svg" width="50" height="50">
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="answers">
-            <input type="text" class="single-quest" id="single-quest">
-            <div class="answer-buttons">
-                <button class="goLeft">
-                    <img src="images/double-left-arrow.svg" width="50" height="50">
-                </button>
-                <button class="btn-outline-submit btn-outline-submit-answer">Ответить</button>
-                <button class="goRight">
-                    <img src="images/double-right-arrow.svg" width="50" height="50">
-                </button>
-            </div>
-        </div>
+        
         <hr>
     </div>
-    <div class="contacts">
-        <div>
-            <p class="organization">По организаторским вопросам:</p>
-        </div>
-        <div class="numbers">
-            <p class="number_1">+79034034111 Инна Викторовна Ковтуненко</p>
-            <p class="number_2">+79282964596 Евгений Евгеньевич Коржов</p>
-        </div>
-        <div>
-            <p class="e_mail">электронный адрес: <a href="mailto:gto-russia@yandex.ru">gto-russia@yandex.ru</a> </p>
-        </div>
+    <div class="container">
+        
     </div>
-    <ul class="footer">
-        <li class="gto-logo">
-            <img src="images/gto-logo-footer.png" x>
-        </li>
-        <li class="sfedu-logo">
-            <img src="images/sfedu_logo.png">
-        </li>
-        <li class="smth-logo">
-            <img src="images/smth_logo.png">
-        </li>
-        <li class="filfac-logo">
-            <img src="images/filfac_logo.png">
-        </li>
-    </ul>
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 
 </body>

@@ -130,7 +130,12 @@ p {
 	background-color: red;
 }
 
-.main-container-content {
+.main-container-content,
+.choose-quiz-container,
+.question_container,
+.question_container,
+.question_container,
+.admin-container {
 	background-image: url('/images/bgrnd.png');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -252,13 +257,17 @@ p {
 	margin-bottom: 30px;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
-/* 
-.enter-admin-btn {
-	margin-left: auto;
-} */
 
 button:focus {
 	outline: none;
+}
+
+.get-in {
+	color:#0165B3 !important;
+}
+
+.get-in:hover {
+	color: #fff !important;
 }
 
 a.authorization-ref {
@@ -274,7 +283,6 @@ hr {
 }
 
 .reg-holder {
-	/* background: url('/images/bgrnd.png'); */
 	padding-top: 40px;
 	width: 1140px;
 	text-align: center;
@@ -1157,7 +1165,7 @@ question_3var
 @media (max-width: 1170px)
 {
 	.contacts {
-		width: 800px;
+		/* width: 800px; */
 		margin: auto;
 		margin-top: 30px;
 	}
@@ -1169,7 +1177,7 @@ question_3var
 		text-align: left;
 	}
 	.footer {
-		width: 800px;
+		/* width: 800px; */
 		margin: auto;
 		margin-top: 30px;
 	}
@@ -1249,12 +1257,16 @@ question_3var
 		display: flex;
 	}
 
-	.main-container {
-		width: 800px;
-		margin: auto;
+	/* .container {
+		width: auto;
 	}
+
+	.main-container {
+		width: 100%;
+	} */
+
 	.reg-holder {
-		width: 800px;
+		max-width: 800px;
 	}
 	.reg_title {
 		margin-left: 150px;
@@ -1272,9 +1284,9 @@ question_3var
 		max-width: 80%;
 		
 	}
-	body {
+	/* body {
 		width: 800px;
-	}
+	} */
 	/*
 	example
 	*/
@@ -1401,24 +1413,26 @@ question_3var
 
 @media (max-width: 830px)
 {
-	body {
-		width: 500px;
+	.main-container {
+		margin: 0 auto;
 	}
+
 	.navbar{
 		width: 500px;
 	}
+
 	.navbar-brand img {
 		max-width: 70%;
 	}
-	.main-container {
-		width: 500px;
-	}
+
 	.reg-holder {
 		width: 500px;
 	}
+
 	.reg_title {
 		margin: 0;
 	}
+
 	.field_border, .mail_border, .organization_name_border, .birth_year_border,
 	.name_border, .pin_border, .city_border {
 		width: 500px;
@@ -1434,15 +1448,13 @@ question_3var
 	}
 	.footer {
 		width: 500px;
+		margin-left: 20px !important;
 	}
 	.footer img {
 		max-width: 70%;
 	}
 	.password-control-reg {
 		right: 10px;
-	}
-	.footer {
-		margin-left: 20px !important;
 	}
 	/*
 	example
@@ -1639,34 +1651,54 @@ question_3var
 		font-size: 18px;
 		height: 45px;
 	}
+
+	.btn_try {
+		margin: 0 auto;
+	}
+
+	.footer,
+	.container {
+		width: auto;
+	}
 }
+
 
 @media (max-width: 550px)
 {
-	body {
-		width: 320px;
-	}
 	.navbar {
 		width: 320px;
 	}
+
 	.navbar-brand img {
 		max-width: 50%;
 	}
-	.main-container {
+	/* .main-container {
 		width: 320px;
-	}
+	} */
 	.reg-holder {
 		width: 320px;
 	}
+
 	.reg_title {
 		width: 320px;
 		font-size: 24px;
+		margin: 0 auto;
 	}
+
+	.reg-holder {
+		padding-bottom: 0;
+	}
+
+	.container {
+		width: auto;
+	}
+
 	.reg_button,
 	.reg-auth_button {
 		width: 300px;
 		font-size: 20px;
 	}
+
 	.field_border,
 	.mail_border,
 	.organization_name_border,
@@ -1690,9 +1722,7 @@ question_3var
 	.numbers {
 		margin: 0;
 	}
-	.footer {
-		width: 320px;
-	}
+	
 	.footer img {
 		max-width: 50%;
 	}
@@ -1749,6 +1779,11 @@ question_3var
 		width: 270px;
 		height: 40px;
 	}
+
+	.btn_try {
+		margin: 15px auto;
+	}
+
 	/*
 	testing
 	*/
@@ -1930,4 +1965,5 @@ question_3var
 	.bigbox {
 		height: 165px;
 	}
+
 }

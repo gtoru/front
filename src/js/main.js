@@ -77,8 +77,8 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+let baseUrl = "http://localhost:8080";
+// let baseUrl = "https://" + window.location.host;
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -180,7 +180,7 @@ if (outUser) {
 
 function outAuthUser() {
     if (!!localStorage.getItem("flag")) {
-        modalAuth.classList.add('hide');
+        if (modalAuth) modalAuth.classList.add('hide');
         document.location.href = "index.html";
         localStorage.clear();
         document.getElementById("authentication").style.visibility = "visible";
@@ -257,7 +257,6 @@ async function addNewTask() {
     // const authentication = await client.authenticateAsync("admin","admin");
     const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
-    console.log(task);
     let taskCreation = await taskClient.createTaskAsync(task, token);
     if (taskCreation.responseCode == 200) {
         alert("Задание успешно добавлено");
@@ -290,9 +289,6 @@ if (startQuiz) {
 }
 
 async function quizing() {
-
-    
-
     let client = new AuthClient(baseUrl);
 
     if (localStorage.getItem("setLogin") == null || localStorage.getItem("setPassword") == null) {
@@ -306,40 +302,21 @@ async function quizing() {
     const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;
 
+    // Сессия уже начата
+    // let start = await getTasks.startNewSessionAsync(userid, quizid, token);
 
-    // начинаем сессию
-    let userid = (await client.getSessionInfoAsync(token)).responseData.userId;
-    let getTasks = new UserClient(baseUrl);
-    let quizid = localStorage.getItem(localStorage.getItem("current"));
-    let start = await getTasks.startNewSessionAsync(userid, quizid, token);
-
+    let quizCl = new QuizClient(baseUrl);
     
-    console.log(start);
-    console.log((await client.getSessionInfoAsync(token)).responseData);
+    let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
 
+    // запоминаем задания
+    let tasks = quiz.responseData.tasks;
+    localStorage.setItem("question", JSON.stringify(tasks));
 
+    // а вот это хз зачем, но тут явно есть какой-то сакральный смысл
+    localStorage.setItem("question-number", 0);
 
-
-    //let quizCl = new QuizClient(baseUrl);
-    
-    //let quiz = await quizCl.getQuizAsync(localStorage.getItem(localStorage.getItem("current")), token);
-
-    // alert(quiz);
-    //console.log(quiz);
-    //alert(quiz.responseData);
-
-
-    //let tasks = quiz.responseData.tasks;
-
-    //localStorage.setItem("question", JSON.stringify(tasks));
-
-
-    
-
-
-    //localStorage.setItem("question-number", 0);
-
-    //document.location.href = "question.html";
+    document.location.href = "question.html";
 }
 
 const addQuiz = document.querySelector('.add-quiz-button');
@@ -461,14 +438,13 @@ async function answerQuestion() {
 
         await addAns.startNewSessionAsync(userid, quizid, token);
 
-        console.log(JSON.parse(localStorage.getItem("answerArray")));
         let addAnsResp = await addAns.addAnswerAsync(userid, JSON.parse(localStorage.getItem("answerArray")), token);
-        if (addAnsResp.responseCode == 200) {
-            alert("Результаты отправлены");
-        } else {
-            alert("К сожалению, что-то пошло не так");
-            return;
-        }
+        // if (addAnsResp.responseCode == 200) {
+        //     alert("Результаты отправлены");
+        // } else {
+        //     alert("К сожалению, что-то пошло не так");
+        //     return;
+        // }
         
         await addAns.endSessionAsync(userid, token);
 
@@ -649,7 +625,6 @@ async function insertQuizTitles() {
     
     let getQuizes = await quizCl.getAllQuizzesAsync(token);
     let allQuizes = getQuizes.responseData;
-    console.log(allQuizes);
     let xxx = document.getElementById('availableQuizzez-list');
     if (xxx) {
         allQuizes.forEach(element => {
