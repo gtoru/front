@@ -108,12 +108,6 @@ module.exports = {
             filename: 'registration.html'
         }),
         new HtmlWebpackPlugin({
-            template: './example.html',
-            inject: true,
-            chunks: ['app'],
-            filename: 'example.html'
-        }),
-        new HtmlWebpackPlugin({
             template: './testing.html',
             inject: true,
             chunks: ['app'],

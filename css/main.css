@@ -135,7 +135,9 @@ p {
 .question_container,
 .question_container,
 .question_container,
-.admin-container {
+.admin-container,
+.quiz-container,
+.main-add-task-container {
 	background-image: url('/images/bgrnd.png');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -989,7 +991,7 @@ img {
 }
 
 .button-final {
-	width: 1140px;
+	/* width: 1140px; */
 	text-align: center;
 	padding: 40px 0;
 }
@@ -1354,7 +1356,7 @@ question_3var
 		width: 800px;
 	}
 	.button-final {
-		width: 800px;
+		/* width: 800px; */
 	}
 	/*
 	admin
@@ -1411,8 +1413,16 @@ question_3var
 	}
 }
 
-@media (max-width: 830px)
-{
+@media (max-width: 930px) {
+	.input-task-text {
+		width: 700px;
+		font-size: 14px;
+		min-height: auto;
+		padding: 7px;
+	}
+}
+
+@media (max-width: 830px) {
 	.main-container {
 		margin: 0 auto;
 	}
@@ -1430,7 +1440,12 @@ question_3var
 	}
 
 	.reg_title {
-		margin: 0;
+		margin: 0 auto;
+	}
+
+	.navbar {
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
 	.field_border, .mail_border, .organization_name_border, .birth_year_border,
@@ -1672,16 +1687,14 @@ question_3var
 	.navbar-brand img {
 		max-width: 50%;
 	}
-	/* .main-container {
-		width: 320px;
-	} */
+
 	.reg-holder {
 		width: 320px;
 	}
 
 	.reg_title {
-		width: 320px;
-		font-size: 24px;
+		width: 280px;
+		font-size: 20px;
 		margin: 0 auto;
 	}
 
@@ -1697,6 +1710,12 @@ question_3var
 	.reg-auth_button {
 		width: 300px;
 		font-size: 20px;
+	}
+
+	.reg-auth_button {
+		height: 40px;
+		width: 260px;
+		font-size: 17px;
 	}
 
 	.field_border,
@@ -1965,5 +1984,53 @@ question_3var
 	.bigbox {
 		height: 165px;
 	}
+
+}
+
+@media (max-width: 360px) {
+	.info-title,
+	.gto-description,
+	.main-testing-content,
+	.btn_try,
+	.contacts,
+	.input-task-text,
+	.add-task-button,
+	.finish-task-button,
+	.btn-add,
+	.btn-end,
+	.button-final,
+	.admin-title,
+	.users-info,
+	.test-redactor {
+		width: 260px;
+	}
+
+	.button-final {
+		margin: 0 auto;
+	}
+	
+	._answer {
+		width: 234px;
+	}
+
+	.one-answer,
+	.four-answers {
+		width: 250px;
+	}
+
+	.select-title p,
+	.four-options-title,
+	.no-option-title {
+		font-size: 14px;
+	}
+
+	.organization,
+	.number_1,
+	.number_2,
+	.e_mail {
+		font-size: 12px;
+		margin: 0;
+	}
+
 
 }
