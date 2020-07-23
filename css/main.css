@@ -1355,9 +1355,6 @@ question_3var
 	.input-task-text {
 		width: 800px;
 	}
-	.button-final {
-		/* width: 800px; */
-	}
 	/*
 	admin
 	*/
@@ -1379,27 +1376,29 @@ question_3var
 	.all-tasks-list {
 		font-size: 14px;
 	}
+
 	.time {
 		line-height: normal;
-		/* padding: 3px; */
 		padding: 10px;
 	}
+
 	.answers {
 		width: 800px;
 	}
+
 	.buttons_box {
 		display: block;
 		margin: 26px 10px 0 10px;
 	}
+
 	.buttons-box-second {
 		margin-top: 5px;
 	}
+	
 	.rectangle-timer {
 		width: 250px;
 	}
-	/*
-	registration
-	*/
+
 	.password-control-reg {
 		right: 110px;
 	}
