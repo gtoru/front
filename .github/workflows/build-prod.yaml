@@ -1,0 +1,21 @@
+name: "Build production image"
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "release*"
+
+jobs:
+  build_image_job:
+    runs-on: ubuntu-latest
+    name: Publish Docker image
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker Login
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u gtoru --password-stdin
+      - name: Build Production Image
+        run: docker build -t docker.pkg.github.com/gtoru/front/front:$GITHUB_REF --target deploy --build-arg npm_token=${{ secrets.GITHUB_TOKEN }} .
+      - name: Publish Production Image
+        run: docker push docker.pkg.github.com/gtoru/front/front:$GITHUB_REF
