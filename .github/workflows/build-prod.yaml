@@ -2,8 +2,6 @@ name: "Build production image"
 
 on:
   push:
-    branches:
-      - master
     tags:
       - "release*"
 
