@@ -14,6 +14,6 @@ jobs:
       - name: Docker Login
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u gtoru --password-stdin
       - name: Build Production Image
-        run: docker build -t docker.pkg.github.com/gtoru/front/front:$GITHUB_REF --target deploy --build-arg npm_token=${{ secrets.GITHUB_TOKEN }} .
+        run: docker build -t docker.pkg.github.com/gtoru/front/front:$(echo $GITHUB_REF | cut -d'/' -f 3) --target deploy --build-arg npm_token=${{ secrets.GITHUB_TOKEN }} .
       - name: Publish Production Image
         run: docker push docker.pkg.github.com/gtoru/front/front:$GITHUB_REF
