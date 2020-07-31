@@ -115,7 +115,7 @@ async function regUserAsync(e) {
     localStorage.setItem("flag", "1");
     localStorage.setItem("login", document.getElementById('mail').value);
     localStorage.setItem("auth-hide","1");
-    document.location.href = "testing.html";
+    document.location.href = "index.html";
 };
 
 const authUser = document.querySelector('.popup-button');
@@ -153,7 +153,7 @@ async function authUserAsync(e) {
             document.location.href = "/admin.html";
         }
         else {
-            document.location.href = "/testing.html";
+            document.location.href = "/index.html";
         }
     };
 };
