@@ -77,8 +77,13 @@ function check() {
 import {
     AuthClient,
 } from "@gtoru/js-client";
-// let baseUrl = "http://localhost:8080";
-let baseUrl = "https://" + window.location.host;
+
+let baseUrl = window.location.origin;
+if (window.location.hostname == "localhost") {
+    baseUrl = "http://localhost:8080";
+} else {
+    baseUrl = window.location.origin;
+}
 
 const regNewUser = document.querySelector('.reg_button');
 if (regNewUser) {
@@ -125,7 +130,7 @@ async function authUserAsync(e) {
     let client = new AuthClient(baseUrl);
     email = document.getElementById('login-email').value;
     let pass = document.getElementById('password-input').value;
-    if (email == "admin" && pass == "admin") {
+    if (email == "admin") {
         localStorage.setItem("admin-only","1");
     };
     modalAuth.classList.add('hide');
@@ -297,7 +302,7 @@ async function quizing() {
         return;
     }
     
-    const authentication = await client.authenticateAsync("admin", "admin");
+    const authentication = await client.authenticateAsync("admin", "bMw2ahH5Sc3qEgn");
 
     // const authentication = await client.authenticateAsync(localStorage.getItem("setLogin"), localStorage.getItem("setPassword"));
     let token = authentication.responseData;

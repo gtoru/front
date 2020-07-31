@@ -137,7 +137,10 @@ p {
 .question_container,
 .admin-container,
 .quiz-container,
-.main-add-task-container {
+.main-add-task-container,
+.main-reg-container,
+.finalPage-container,
+.test-page-container {
 	background-image: url('/images/bgrnd.png');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -362,7 +365,7 @@ hr {
 
 .password-control-reg {
 	top: 43px;
-    right: 290px;
+    right: 265px;
 }
 
 /* .pin_border {
@@ -490,7 +493,7 @@ hr {
 }
 
 .answers {
-	width: 900px;
+	/* width: 900px; */
 	display: block;
 	margin: 0 auto;
 	text-align: center;
@@ -674,7 +677,6 @@ img {
 
 .gto-text {
 	font-size: 24px;
-	/* line-height: 33px; */
 	text-align: center;
 	padding-top: 50px;
 	color: #0165B3;
@@ -682,7 +684,6 @@ img {
 
 .gto-description {
 	font-size: 20px;
-	/* line-height: 27px; */
 	width: 1000px;
 	text-align: center;
 	color: #0165B3;
@@ -1171,19 +1172,22 @@ question_3var
 		margin: auto;
 		margin-top: 30px;
 	}
+
 	.numbers {
 		margin: 0;
 		margin-left: -15px;
 	}
+
 	.e_mail {
 		text-align: left;
 	}
+
 	.footer {
 		/* width: 800px; */
 		margin: auto;
 		margin-top: 30px;
 	}
-	/*Гамбургер*/
+
 	.menu-button {
 		display: block;
 		position: absolute;
@@ -1195,6 +1199,7 @@ question_3var
 		border: none;
 		cursor: pointer;
 	}
+
 	.menu-button:before {
 		content: '';
 		position: absolute;
@@ -1207,6 +1212,7 @@ question_3var
 		transition: transform 0.2s;
 		margin-top: -8px;
 	}
+
 	.menu-button:after {
 		content: '';
 		position: absolute;
@@ -1219,30 +1225,37 @@ question_3var
 		transition: transform 0.2s;
 		margin-top: 8px;
 	}
+
 	.menu-button-active {
 		height: 0;
 	}
+
 	.menu-button-active:before {
 		transform: rotate(45deg);
 		margin-top: 0;
 	}
+
 	.menu-button-active:after {
 		transform: rotate(-45deg);
 		margin-top: 0;
 	}
+
 	.btn {
 		color: #fff;
 		border:none;
 		background-color: transparent;
 	}
+
 	.btn-outline-primary {
 		box-shadow: none;
 		border-radius: 0;
 		width: 250px;
 	}
+
 	.auth .btn-outline-primary {
 		width: auto;
 	}
+
 	.header {
 		margin-top: 20px;
 		padding-top: 40px;
@@ -1255,123 +1268,110 @@ question_3var
 		padding-bottom: 60px;
 		background-color: #54B2E8;
 	}
+
 	.header-active {
 		display: flex;
 	}
 
-	/* .container {
-		width: auto;
-	}
-
-	.main-container {
-		width: 100%;
-	} */
-
 	.reg-holder {
 		max-width: 800px;
 	}
+
 	.reg_title {
 		margin-left: 150px;
 	}
-	.field_border, .mail_border, .organization_name_border, .birth_year_border{
-		margin-left: 90px;
-	}
+
 	nav {
 		margin: 0;
 	}
+
 	.navbar{
 		width: 800px;
 	}
+
 	.navbar-brand img {
 		max-width: 80%;
 		
 	}
-	/* body {
-		width: 800px;
-	} */
-	/*
-	example
-	*/
+
 	.page_title {
 		width: 800px;
 		padding-top: 40px;
 	}
+
 	.page_title_header {
 		width: 700px;
 		margin: 0;
 		font-size: 20px;
 		margin-left: 50px;
 	}
+
 	.paragraphs {
 		margin-left: 2em;
 		margin-right: 2em;
 		margin-top: 40px;
 	}
+
 	.btn_try {
 		width: 800px;
 	}
+
 	.try_test_button {
 		margin: 50px 0;
 	}
-	/*
-	testing
-	*/
+
 	.gto-description {
 		width: 600px;
 		margin: auto;
 		margin-bottom: 40px;
 		font-size: 18px;
 	}
+	
 	.main-testing-content {
 		width: 700px;
 	}
+
 	.main-testing-content p {
 		font-size: 15px;
 	}
+
 	.try_test_button {
 		margin: 30px 0;
 		font-size: 18px;
 		height: 50px;
 	}
-	/*
-	information
-	*/
+
 	.info-title {
 		width: 700px;
 		padding: 10px 0;
 	}
+
 	.info-refs {
 		font-size: 20px;
 	}
-	/*
-	addQuiz
-	*/
+
 	.new-quiz-title {
 		width: 700px;
 	}
-	/*
-	addTask
-	*/
+
 	.input-task-text {
 		width: 800px;
 	}
-	/*
-	admin
-	*/
+
 	.test-redactor {
 		width: 500px;
 	}
+
 	.users-info-title,
 	.redactor-title {
 		font-size: 17px;
 	}
+
 	.number-users p,
 	.download-info {
 		font-size: 16px;
 	}
-	/*
-	question_2var
-	*/
+
 	.rectangle,
 	.all-tasks-list {
 		font-size: 14px;
@@ -1380,10 +1380,6 @@ question_3var
 	.time {
 		line-height: normal;
 		padding: 10px;
-	}
-
-	.answers {
-		width: 800px;
 	}
 
 	.buttons_box {
@@ -1399,7 +1395,7 @@ question_3var
 		width: 250px;
 	}
 
-	.password-control-reg {
+	.password-control {
 		right: 110px;
 	}
 
@@ -1418,6 +1414,14 @@ question_3var
 		font-size: 14px;
 		min-height: auto;
 		padding: 7px;
+	}
+
+	.single-quest,
+	.quest1,
+	.quest2,
+	.quest3,
+	.quest4 {
+		width: 690px;
 	}
 }
 
@@ -1452,113 +1456,115 @@ question_3var
 		width: 500px;
 		margin: 0;
 	}
+
 	.contacts {
 		width: 500px;
 		display: flex;
 		flex-direction: column;
 	}
+
 	.numbers {
 		margin: 0;
 	}
+
 	.footer {
 		width: 500px;
 		margin-left: 20px !important;
 	}
+
 	.footer img {
 		max-width: 70%;
 	}
-	.password-control-reg {
-		right: 10px;
-	}
-	/*
-	example
-	*/
+
 	.page_title {
 		width: 500px;
 	}
+
 	.page_title_header {
 		width: 440px;
 		margin: 0;
 		margin-left: 30px;
 	}
+
 	.paragraphs {
 		margin-top: 20px;
 	}
+
 	.paragraphs p {
 		font-size: 15px;
 	}
+
 	.btn_try {
 		width: 500px;
 	}
+
 	.download_ref {
 		font-size: 16px;
 	}
+
 	.try_test_button {
 		margin: 30px 0;
 		font-size: 20px;
 	}
-	/*
-	testing
-	*/
+
 	.gto-text {
 		padding-top: 30px;
 		font-size: 20px;
 	}
+
 	.gto-description {
 		width: 400px;
 		font-size: 17px;
 		margin-bottom: 20px;
 	}
+
 	.main-testing-content {
 		width: 460px;
 	}
+
 	.main-testing-content p {
 		font-size: 14px;
 	}
+
 	.try_test_button {
 		margin: 20px 0;
 		font-size: 18px;
 		height: 40px;
 	}
-	/*
-	information
-	*/
+
 	.info-title {
 		width: 450px;
 		font-size: 18px;
 	}
+
 	.info-refs {
 		font-size: 16px;
 	}
-	/*
-	chooseQuiz
-	*/
+
 	.choose-title {
 		width: 450px;
 		height: 40px;
 		font-size: 18px;
 		padding: 5px;
 	}
-	/*
-	addQuiz
-	*/
+
 	.add-title {
 		width: 400px;
 		font-size: 18px;
 		height: auto;
 		padding: 6px;
 	}
+
 	.new-quiz-title {
 		width: 400px;
 		height: 30px;
 	}
+
 	.add-quiz-button {
 		width: 250px;
 		font-size: 15px;
 	}
-	/*
-	addTask
-	*/
+
 	.input-task-text {
 		width: 500px;
 	}
@@ -1674,8 +1680,37 @@ question_3var
 	.container {
 		width: auto;
 	}
+
+	.field_border,
+	.mail_border,
+	.organization_name_border,
+	.birth_year_border,
+	.name_border,
+	.pin_border,
+	.city_border {
+		margin: 0 auto;
+	}
+
+	.password-control {
+		right: 147px;
+	}
+
+	.navbar {
+		margin: 32px auto;
+	}
 }
 
+@media (max-width: 700px) {
+	.password-control {
+		right: 85px;
+	}
+}
+
+@media (max-width: 575px) {
+	.navbar {
+		margin: 32px 10px;
+	}
+}
 
 @media (max-width: 550px)
 {
@@ -1725,18 +1760,27 @@ question_3var
 	.pin_border,
 	.city_border {
 		width: 320px;
-		margin: 0;
+		margin: 0 auto;
 		height: 35px;
 		font-size: 14px;
 	}
-	.field p, .mail p, .organization_name p, .birth_year p, .name p, .pin p, .city p {
+
+	.field p,
+	.mail p,
+	.organization_name p,
+	.birth_year p,
+	.name p,
+	.pin p,
+	.city p {
 		font-size: 16px;
 	}
+
 	.contacts {
 		width: 320px;
 		display: flex;
 		flex-direction: column;
 	}
+
 	.numbers {
 		margin: 0;
 	}
@@ -1772,8 +1816,8 @@ question_3var
 		font-size: 14px;
 	}
 	.password-control {
-		top: 6px;
-		right: 20px;
+		top: 38px;
+		right: 90px;
 	}
 	/*
 	example
@@ -1867,10 +1911,6 @@ question_3var
 		height: 30px;
 	}
 
-	.password-control-reg {
-		right: 8px;	
-		top: 38px;
-	}
 	.popup-button {
 		height: auto;
 		padding: 5px;
@@ -1985,6 +2025,11 @@ question_3var
 	}
 
 }
+@media (max-width: 450px) {
+	.password-control {
+		right: 50px;
+	}
+}
 
 @media (max-width: 360px) {
 	.info-title,
@@ -2013,7 +2058,22 @@ question_3var
 	}
 
 	.one-answer,
-	.four-answers {
+	.four-answers,
+	.answers,
+	.single-quest,
+	._btn-outline-answer_,
+	.quest1,
+	.quest2,
+	.quest3,
+	.quest4,
+	.field_border,
+	.mail_border,
+	.organization_name_border,
+	.birth_year_border,
+	.name_border,
+	.pin_border,
+	.city_border,
+	.reg_button {
 		width: 250px;
 	}
 
@@ -2031,5 +2091,8 @@ question_3var
 		margin: 0;
 	}
 
+	._btn-outline-answer_ {
+		margin: 5px 0;
+	}
 
 }
