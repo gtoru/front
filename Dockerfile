@@ -2,18 +2,18 @@ FROM node:13.8 as build
 
 WORKDIR /app
 COPY package.json /app
-COPY package-lock.json /app
+COPY yarn.lock /app
 
 ARG npm_token
 ENV NPM_TOKEN $npm_token
 RUN echo "//npm.pkg.github.com/:_authToken="$NPM_TOKEN > /app/.npmrc
-RUN echo "registry=https://npm.pkg.github.com/gtoru" >> /app/.npmrc
+RUN echo "@gtoru:registry=https://npm.pkg.github.com" >> /app/.npmrc
 
-RUN npm install
+RUN yarn install
 
 COPY . /app
 
-RUN npm run build
+RUN yarn build
 
 FROM nginx:1.17.8-alpine as deploy
 
